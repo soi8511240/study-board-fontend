@@ -1,13 +1,14 @@
 'use client'
 
 import React from 'react';
-import { PostList } from '@/widgets';
+import { BoardList, BoardFilter } from '@/widgets';
 
 export default function Page() {
 
   return (
       <>
-          <PostList />
+          <BoardFilter />
+          <BoardList />
       </>
   );
 }

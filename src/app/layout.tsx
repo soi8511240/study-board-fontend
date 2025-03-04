@@ -27,9 +27,11 @@ export default function RootLayout({
 }>) {
   return (
     <html>
-      <body>
+    <body>
+      <div className="wrap">
         <ReduxProvider>{children}</ReduxProvider>
-      </body>
+      </div>
+    </body>
     </html>
-  );
+);
 }

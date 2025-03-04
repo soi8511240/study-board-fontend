@@ -1,1 +1,2 @@
-export { default as PostList } from './boardSlice/BoardList';
+export { default as BoardList } from './board/BoardList';
+export { default as BoardFilter } from './board/BoardFilter';
