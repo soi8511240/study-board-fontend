@@ -1,0 +1,1 @@
+export { BoardApi } from '@/entities/board/api/BoardApi';

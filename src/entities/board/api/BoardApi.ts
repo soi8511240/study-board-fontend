@@ -10,7 +10,7 @@ export class BoardApi {
         this.api = axiosInstance;
     }
 
-    async list(query = {}, config: AxiosRequestConfig = {method: 'get'}): Promise<any> {
+    async lists(query = {}, config: AxiosRequestConfig = {method: 'get'}): Promise<any> {
         return this.api.get(`${this.uri}/lists`, query)
             .then((res) => {
                 return res;

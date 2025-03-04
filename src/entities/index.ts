@@ -1,0 +1,1 @@
+export type {listsBoardVO, listsResponseVO, listsRequestDTO} from '@/entities/board/model';
