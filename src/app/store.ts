@@ -1,20 +1,5 @@
-// import { configureStore } from '@reduxjs/toolkit'
-// import boardReducer from "@/reducer/board/boardSlice";
-// // ...
-//
-// export const store = configureStore({
-//     reducer: {
-//         board: boardReducer,
-//     },
-// })
-//
-// export default store;
-//
-// export type RootState = ReturnType<typeof store.getState>
-// export type AppDispatch = typeof store.dispatch
-
 import { configureStore } from '@reduxjs/toolkit'
-import boardReducer from "@/reducer/board/boardSlice";
+import {reducer as boardReducer} from "@/widgets/board/";
 
 export const makeStore = () => {
     return configureStore({

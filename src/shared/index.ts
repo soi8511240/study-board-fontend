@@ -1,1 +1,2 @@
-export { BoardApi } from '@/entities/board/api/BoardApi';
+export { api } from '@/shared/db/axios';
+// export * from '@/shared/constants/Constants';

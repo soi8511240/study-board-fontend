@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react';
-import { BoardList, BoardFilter } from '@/widgets';
+import { BoardList, BoardFilter } from '@/widgets/board';
 
 export default function Page() {
 

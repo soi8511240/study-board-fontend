@@ -1,7 +1,7 @@
-import {listsBoardVO, listsResponseVO} from "@/entities/board/model";
 import { createSlice } from "@reduxjs/toolkit";
+import type { RootState } from '@/app/store'
 import type { PayloadAction } from '@reduxjs/toolkit';
-import type { RootState } from '@/store'
+import {listsBoardVO, listsResponseVO} from "../index";
 
 // const initialState = {
 //     lists: [],

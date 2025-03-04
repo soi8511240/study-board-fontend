@@ -1,7 +1,7 @@
 import {AxiosInstance, AxiosRequestConfig} from "axios";
-import {api as axiosInstance} from '@/shared/axios';
+import {api as axiosInstance} from '@/shared/db/axios';
 
-export class BoardApi {
+export class ListApi {
     protected api: AxiosInstance;
     private uri: string;
 
@@ -12,8 +12,8 @@ export class BoardApi {
 
     async lists(query = {}, config: AxiosRequestConfig = {method: 'get'}): Promise<any> {
         return this.api.get(`${this.uri}/lists`, query)
-            .then((res) => {
-                return res;
+            .then(({data}) => {
+                return data;
             }).finally(() => {
             });
     }

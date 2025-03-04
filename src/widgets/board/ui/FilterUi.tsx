@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-export default function BoardFilter() {
+export default function FilterUi() {
     //
     // useEffect( () => {
     // }, []);
