@@ -11,19 +11,12 @@ export class ListApi {
     }
 
     async lists(query = {}, config: AxiosRequestConfig = {method: 'get'}): Promise<any> {
-        return this.api.get(`${this.uri}/lists`, query)
+        console.log('####', query)
+        return this.api.get(`${this.uri}/lists`, {params:query})
             .then(({data}) => {
                 return data;
             }).finally(() => {
             });
     }
-
-    // async getBoardList(dto, config: AxiosRequestConfig = {}):Promise<any> {
-    //     this.api.get(`${this.uri}`, dto)
-    //         .then((r) => {
-    //             return r;
-    //         }).finally(() => {
-    //     });
-    // }
 
 }

@@ -1,31 +1,11 @@
 'use client'
 
-import React, {useEffect} from 'react';
-
-import { useAppSelector, useAppDispatch } from '@/app/hooks';
-
-import {ListApi, listsBoardVO, getAllBoard} from '../index';
+import {listsBoardVO, useListsFetch} from '../index';
 
 import Link from "next/link";
 
-export default function BoardList() {
-    const {boardLists, totalCnt} = useAppSelector((state) => state.board)
-    const dispatch = useAppDispatch();
-
-    const api = new ListApi();
-    const fetchData = async () => {
-        try {
-            const data = await api.lists();
-            dispatch(getAllBoard(data));
-        } catch (error) {
-            console.error('Failed to fetch list:', error);
-        }
-    };
-
-    useEffect( () => {
-        fetchData();
-        console.log('boardLists', boardLists)
-    }, []);
+export function ListUi() {
+    const {boardLists, totalCnt} = useListsFetch();
 
     return (
         <>
@@ -56,7 +36,7 @@ export default function BoardList() {
                         : null
                 }
 
-                {
+                {boardLists &&
                     boardLists.map((item: listsBoardVO) => (
                         <tr key={item.id}>
                             <td>{item.categoryName}</td>

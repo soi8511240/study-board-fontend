@@ -1,11 +1,12 @@
-import {boardSlice} from "@/widgets/board/model/boardSlice";
 
 export type { listsResponseVO, listsBoardVO, listsRequestDTO } from './model/listModel';
-export {default as reducer, getAllBoard, selectBoard } from './model/boardSlice';
+export {default as reducer, selectBoard, getAllBoard, setFilter } from './model/boardSlice';
 
 export { ListApi } from './api/ListApi';
 
-export { default as BoardList } from './ui/ListUi';
-export { default as BoardFilter } from './ui/FilterUi';
+export { ListUi } from './ui/ListUi';
+export { FilterUi } from './ui/FilterUi';
 
-
+export {useFilter} from './model/useFilter';
+export {useInputTest} from './model/useInputTest';
+export {useListsFetch} from './model/useListsFetch';
