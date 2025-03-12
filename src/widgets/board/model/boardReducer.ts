@@ -1,20 +1,18 @@
+/**
+ * board Lists Reducer
+ */
+
 import { createSlice } from "@reduxjs/toolkit";
 import type { RootState } from '@/app/store'
 import type { PayloadAction } from '@reduxjs/toolkit';
-import {listsBoardVO, listsRequestDTO, listsResponseVO} from "../index";
+import {listsBoardVO, listsRequestDTO, listsResponseVO} from "@/widgets/board";
 
 // const initialState = {
 //     lists: [],
 //     pageCnt: 0
 // } satisfies listsResponseVO as listsResponseVO;
 
-interface boardState {
-    boardLists: listsBoardVO[];
-    totalCnt: number;
-    filter: listsRequestDTO;
-}
-
-const initialState:boardState = {
+const initialState:listsResponseVO = {
     boardLists: [],
     totalCnt: 0,
     filter:{
@@ -26,21 +24,21 @@ const initialState:boardState = {
     }
 };
 
-export const boardSlice = createSlice({
+export const boardReducer = createSlice({
     name: 'board',
     initialState,
     reducers: {
-        getAllBoard: (state, action:PayloadAction<boardState>) => {
+        getAllBoard: (state, action:PayloadAction<listsResponseVO>) => {
             state.boardLists = action.payload.boardLists;
             state.totalCnt = action.payload.totalCnt;
         },
-        setFilter: (state, action:PayloadAction<boardState>) => {
-            state.filter = action.payload.filter;
+        setFilter: (state, action:PayloadAction<listsRequestDTO>) => {
+            state.filter = action.payload;
         }
     }
 })
 
-export const { getAllBoard, setFilter } = boardSlice.actions;
+export const { getAllBoard, setFilter } = boardReducer.actions;
 
 export const selectBoard = (state: RootState) => state.board
-export default boardSlice.reducer;
+export default boardReducer.reducer;

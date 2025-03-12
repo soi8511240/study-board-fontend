@@ -1,12 +1,20 @@
+/* type */
+export type { listsResponseVO, listsBoardVO, listsRequestDTO, detailResponseVO } from './model/model';
+// export { listsFilterAtom, setFilterAtom, getFilterAtom } from './model/filterAtom';
 
-export type { listsResponseVO, listsBoardVO, listsRequestDTO } from './model/listModel';
-export {default as reducer, selectBoard, getAllBoard, setFilter } from './model/boardSlice';
+/* reducer */
+export {default as reducer, selectBoard, getAllBoard, setFilter } from './model/boardReducer';
 
-export { ListApi } from './api/ListApi';
+/* api */
+export { api } from './api/api';
 
+/* ui */
 export { ListUi } from './ui/ListUi';
 export { FilterUi } from './ui/FilterUi';
+export { PagingUi } from './ui/PagingUi';
+export { DetailUi } from './ui/DetailUi';
 
-export {useFilter} from './model/useFilter';
-export {useInputTest} from './model/useInputTest';
-export {useListsFetch} from './model/useListsFetch';
+/* custom hook */
+export { useListsFilter } from './model/useListsFilter';
+export { useListsFetch } from './model/useListsFetch';
+export { useDetail } from './model/useDetail';

@@ -1,12 +1,11 @@
 'use client'
 
-import {listsBoardVO, useListsFetch} from '../index';
+import React from 'react';
+import {listsBoardVO, listsResponseVO} from '@/widgets/board';
 
 import Link from "next/link";
 
-export function ListUi() {
-    const {boardLists, totalCnt} = useListsFetch();
-
+export const ListUi:React.FC<listsResponseVO> = ({boardLists, totalCnt})=> {
     return (
         <>
             <div className="table-top">총 {totalCnt}건</div>
@@ -40,7 +39,7 @@ export function ListUi() {
                     boardLists.map((item: listsBoardVO) => (
                         <tr key={item.id}>
                             <td>{item.categoryName}</td>
-                            <td><Link href={`/post/${item.id}`}>{item.title},{item.attachYn}</Link>
+                            <td><Link href={`/board/${item.id}`}>{item.title},{item.attachYn}</Link>
                                 {item.attachYn === 'Y'? <span className="ico attach"></span>:null}
                             </td>
                             <td>{item.writer}</td>
@@ -55,3 +54,4 @@ export function ListUi() {
         </>
     );
 }
+export default ListUi;
