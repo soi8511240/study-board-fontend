@@ -1,7 +1,8 @@
 'use client'
 
 import React from 'react';
-import {listsBoardVO, listsResponseVO} from '@/widgets/board';
+
+import {listsBoardVO, listsResponseVO} from '@/entities/board';
 
 import Link from "next/link";
 
@@ -49,6 +50,7 @@ export const ListUi:React.FC<listsResponseVO> = ({boardLists, totalCnt})=> {
                         </tr>
                     ))
                 }
+
                 </tbody>
             </table>
         </>

@@ -1,6 +1,8 @@
 'use client'
 
-import { ListUi, FilterUi, PagingUi, useListsFetch, useListsFilter, listsRequestDTO, listsBoardVO, listsResponseVO } from '@/widgets/board';
+import React from "react";
+import { listsRequestDTO, listsBoardVO, listsResponseVO} from '@/entities/board';
+import { ListUi, FilterUi, PagingUi, useListsFetch, useListsFilter } from '@/widgets/board';
 
 export default function Page() {
 

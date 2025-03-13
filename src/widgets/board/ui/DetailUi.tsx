@@ -1,13 +1,13 @@
 'use client'
 
 import React from 'react';
-import {detailResponseVO} from '@/widgets/board';
+import {type detailResponseVO} from '@/entities/board';
 
-type DetailUiProps = {
+type Props = {
     detail: detailResponseVO | undefined;
 }
 
-export const DetailUi:React.FC<DetailUiProps> = ({ detail })=> {
+export const DetailUi:React.FC<Props> = ({ detail })=> {
     return (
         <>
             {detail && (

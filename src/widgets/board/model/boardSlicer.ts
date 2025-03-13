@@ -5,7 +5,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { RootState } from '@/app/store'
 import type { PayloadAction } from '@reduxjs/toolkit';
-import {listsBoardVO, listsRequestDTO, listsResponseVO} from "@/widgets/board";
+import { listsRequestDTO, listsResponseVO} from "@/entities/board";
 
 // const initialState = {
 //     lists: [],
@@ -24,7 +24,7 @@ const initialState:listsResponseVO = {
     }
 };
 
-export const boardReducer = createSlice({
+export const boardSlicer = createSlice({
     name: 'board',
     initialState,
     reducers: {
@@ -38,7 +38,7 @@ export const boardReducer = createSlice({
     }
 })
 
-export const { getAllBoard, setFilter } = boardReducer.actions;
+export const { getAllBoard, setFilter } = boardSlicer.actions;
 
 export const selectBoard = (state: RootState) => state.board
-export default boardReducer.reducer;
+export default boardSlicer.reducer;

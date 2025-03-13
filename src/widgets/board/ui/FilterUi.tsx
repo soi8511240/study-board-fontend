@@ -1,15 +1,15 @@
 'use client'
 
 import React from 'react';
-import {listsRequestDTO} from '@/widgets/board';
+import {listsRequestDTO} from '@/entities/board';
 
-type FilterUiProps = {
+type Props = {
     filter: listsRequestDTO,
     handleInputChanger: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void,
     handleSubmit: (obj: listsRequestDTO) => void
 }
 
-export const FilterUi:React.FC<FilterUiProps> = ({filter, handleSubmit, handleInputChanger}) => {
+export const FilterUi:React.FC<Props> = ({filter, handleSubmit, handleInputChanger}) => {
 
     const handleEventSubmit = ()=>{
          handleSubmit({...filter,currentPage:1});

@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+@import './meterial-tailwind.css';
+
 *{
     padding: 0;
     margin: 0;
