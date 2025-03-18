@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import {useCallback, useState} from "react";
 import {boardWriteApi, type BoardDto} from "@/features/board/write";
 
-import {type domChangeEventType, validation} from "@/shared";
+import {type DomChangeEventType, type DomFormsTypes, validation} from "@/shared";
 
 const initialWriteData:BoardDto ={
     title: '',
@@ -16,7 +16,7 @@ const initialWriteData:BoardDto ={
     categoryName: '',
 }
 
-export function useWrite(submitCallback:Function) {
+export function useWrite(submitCallback:(message:string)=>void) {
 
     const [writeData, setWriteData] = useState<Partial<BoardDto>>(initialWriteData);
     const router = useRouter();
@@ -36,8 +36,8 @@ export function useWrite(submitCallback:Function) {
     /**
      * 필터 입력 필드의 변경 이벤트 처리 함수
      */
-    const handleValueChange:(e: domChangeEventType) => void = (e: domChangeEventType) => {
-        const { name, value } = e.target as HTMLInputElement | HTMLSelectElement;
+    const handleValueChange:(e: DomChangeEventType) => void = (e: DomChangeEventType) => {
+        const { name, value } = e.target as DomFormsTypes;
         setWriteData((oldVal) => ({
             ...oldVal,
             [name]: value,
@@ -50,6 +50,7 @@ export function useWrite(submitCallback:Function) {
             submitCallback(validateResult.message);
             return
         }
+
         fetchData()
             .then((res) => {
                 console.log('###', res)

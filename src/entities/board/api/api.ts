@@ -1,6 +1,5 @@
-import {AxiosInstance, AxiosRequestConfig} from "axios";
 import {apiInstance} from '@/shared/db/axios';
-import {listsBoardVO, listsResponseVO} from "./type";
+import {listsResponseVO} from "@/entities/board";
 //
 // class Api {
 //     protected api: AxiosInstance;
@@ -27,7 +26,7 @@ import {listsBoardVO, listsResponseVO} from "./type";
 //     }
 // }
 
-const boardListsApi = async (query={})=>{
+const boardListsApi = async (query={}):Promise<listsResponseVO>=>{
     return apiInstance.get('/board/lists', {params:query})
         .then(({data}) => {
             return data;

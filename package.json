@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@material-tailwind/react": "^2.1.10",
-    "@reduxjs/toolkit": "^2.6.0",
+    "@reduxjs/toolkit": "^2.6.1",
     "axios": "^1.8.1",
     "jotai": "^2.12.2",
     "jotai-location": "^0.5.5",

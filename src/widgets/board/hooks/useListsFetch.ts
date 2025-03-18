@@ -24,7 +24,7 @@ export function useListsFetch() {
             .then(res => {
                 dispatch(getAllBoard(res));
             });
-        console.log('boardLists', boardLists)
+        console.log('#############useEffect ', boardLists)
     }, [filter]);
 
     return {boardLists, totalCnt};

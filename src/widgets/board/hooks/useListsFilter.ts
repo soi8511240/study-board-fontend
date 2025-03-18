@@ -4,10 +4,10 @@
 
 import {useCallback, useEffect, useState} from "react";
 import { type listsRequestDTO ,type listsResponseVO} from '@/entities/board';
-import { setFilter} from '@/widgets/board';
+import { setFilter } from '@/widgets/board';
 import {useAppDispatch, useAppSelector} from "@/app/hooks";
 
-import { type domChangeEventType} from "@/shared";
+import { type DomChangeEventType, type DomFormsTypes} from "@/shared";
 
 const initialFilter: listsRequestDTO = {
     categoryId: "",
@@ -47,16 +47,16 @@ export function useListsFilter(){
     /**
      * 검색이벤트 함수
      */
-    const handleSubmit = useCallback((params:listsRequestDTO)=>{
+    const handleSubmit = useCallback((params:listsRequestDTO = {})=>{
         dispatch(setFilter({...filter,...params}));
     },[filter]);
 
     /**
      * 필터 입력 필드의 변경 이벤트 처리 함수
      */
-    const handleFilterValueChange:(e: domChangeEventType) => void = (e: domChangeEventType) =>
+    const handleFilterValueChange:(e: DomChangeEventType) => void = (e: DomChangeEventType) =>
     {
-        const { name, value } = e.target as HTMLInputElement | HTMLSelectElement;
+        const { name, value } = e.target as DomFormsTypes;
         updateFilterValue(name, value);
     }
 

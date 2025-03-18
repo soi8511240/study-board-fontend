@@ -1,37 +1,25 @@
 'use client'
 
-import React, {useState} from 'react';
+import React from 'react';
 
 import css from './BoardWriteUi.module.css';
 import {useWrite} from "@/features/board/write";
-import {Alert} from '@/shared/ui/';
+import {useModal} from "@/shared/ui";
+
+import {ModalIsPassCheck} from '../modal/ModalIsPassCheck';
 
 export const BoardWriteUi = ()=>{
 
-    const [alertOpen, setAlertOpen] = useState<boolean>(false);
-    const [alertMessage, setAlertMessage] = useState<string>('');
-
+    const {callModal} = useModal();
 
     const displayMessage = (message:string)=>{
-        setAlertMessage(message)
-        setAlertOpen(true);
-        // alert(message)
+        callModal({ type: 'Custom', title:'alert', message, component: <ModalIsPassCheck /> });
     }
 
-    const handleModal = ()=>{
-        setAlertOpen(!alertOpen);
-    }
     const {writeData, handleValueChange, handleSubmit, goBackPage} = useWrite(displayMessage);
 
     return (
         <>
-
-            <Alert
-                title={''}
-                message={alertMessage}
-                open={alertOpen}
-                handler={handleModal}
-            />
             <table className="table-horizontal">
                 <colgroup>
                     <col className={css.w15p}/>

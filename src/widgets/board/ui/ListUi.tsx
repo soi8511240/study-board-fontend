@@ -5,8 +5,10 @@ import React from 'react';
 import {listsBoardVO, listsResponseVO} from '@/entities/board';
 
 import Link from "next/link";
+import {useListsFetch} from "@/widgets/board";
 
-export const ListUi:React.FC<listsResponseVO> = ({boardLists, totalCnt})=> {
+export const ListUi = ()=> {
+    const {boardLists, totalCnt} = useListsFetch() as listsResponseVO;
     return (
         <>
             <div className="table-top">총 {totalCnt}건</div>

@@ -1,20 +1,17 @@
 'use client'
 
 import React, {useEffect, useState} from 'react';
-import {listsRequestDTO, listsBoardVO} from "@/entities/board";
+import {listsRequestDTO} from "@/entities/board";
 import Link from "next/link";
+import {useListsFetch, useListsFilter} from "@/widgets/board";
 
 const FETCH_CNT = 10;
 
-type Props = {
-    filter: listsRequestDTO;
-    handleSubmit: (obj: listsRequestDTO) => void;
-    totalCnt: number;
-    boardLists?: listsBoardVO[];
-}
-
-export const PagingUi:React.FC<Props> = ({filter, handleSubmit, totalCnt, boardLists}) =>
+export const PagingUi = () =>
 {
+    const {boardLists, totalCnt} = useListsFetch();
+    const {filterValue, handleSubmit} = useListsFilter();
+
     const [pageCnt, setPageCnt] = useState<number>(0);
 
     const handlePagingClick = (value:number = 1 )=>{
@@ -24,6 +21,7 @@ export const PagingUi:React.FC<Props> = ({filter, handleSubmit, totalCnt, boardL
     useEffect(() => {
         setPageCnt(Math.ceil(totalCnt / FETCH_CNT));
     },[boardLists])
+
 
     return (
 
@@ -37,7 +35,7 @@ export const PagingUi:React.FC<Props> = ({filter, handleSubmit, totalCnt, boardL
                         pageCnt > 0 &&
                         Array.from({length: pageCnt}, (v, i) => i + 1).map((item, index) => (
                             <li key={index} onClick={()=>handlePagingClick(index+1)}>
-                                <button className={index+1 === filter.currentPage? 'active' : '' }>{index+1}</button>
+                                <button className={index+1 === filterValue.currentPage? 'active' : '' }>{index+1}</button>
                             </li>
                         ))
                     }
