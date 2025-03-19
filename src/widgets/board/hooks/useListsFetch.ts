@@ -1,4 +1,4 @@
-import {useAppDispatch, useAppSelector} from "@/app/hooks";
+import {useAppDispatch, useAppSelector} from "@/app/store/hooks";
 import {boardListsApi, type listsResponseVO} from '@/entities/board';
 import {getAllBoard} from "@/widgets/board";
 import {useCallback, useEffect} from "react";

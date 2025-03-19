@@ -1,10 +1,10 @@
 'use client'
 
 // import type { Metadata } from "next";
-import "./globals.css";
+// import "./css/globals.css";
 import "./css/style.css";
 
-import ReduxProvider from "./StoreProvider";
+import ReduxProvider from "./store/StoreProvider";
 import {GlobalModal} from '@/shared/ui/';
 
 // export const metadata: Metadata = {

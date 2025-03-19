@@ -3,7 +3,7 @@
  */
 
 import { createSlice } from "@reduxjs/toolkit";
-import type { RootState } from '@/app/store'
+import type { RootState } from '@/app/store/store'
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { listsRequestDTO, listsResponseVO} from "@/entities/board";
 

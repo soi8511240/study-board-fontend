@@ -3,7 +3,7 @@
  */
 
 import {createSlice} from "@reduxjs/toolkit";
-import type { RootState } from '@/app/store'
+import type { RootState } from '@/app/store/store'
 import type { PayloadAction } from '@reduxjs/toolkit';
 import {JSX} from "react";
 
@@ -30,13 +30,6 @@ export const modalSlicer = createSlice({
         setModal: (state, action:PayloadAction<ModalState>) => {
             console.log('################## reducers', action.payload);
             Object.assign(state, action.payload);
-            //
-            // const {type, open, title, message, component} = action.payload;
-            // state.type = type;
-            // state.open = open;
-            // state.title = title;
-            // state.message = message;
-            // state.component = component;
         },
         initialModal: (state) => {
             Object.assign(state, initialState);

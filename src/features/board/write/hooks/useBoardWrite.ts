@@ -1,11 +1,12 @@
 'use client'
 
-import { useRouter } from 'next/navigation';
+import {useRouter} from 'next/navigation';
 
-import {useCallback, useState} from "react";
-import {boardWriteApi, type BoardDto} from "@/features/board/write";
+import {useCallback, useEffect, useState} from "react";
+import {boardWriteApi} from "@/features/board/write";
 
 import {type DomChangeEventType, type DomFormsTypes, validation} from "@/shared";
+import {type BoardDto} from "@/entities/board";
 
 const initialWriteData:BoardDto ={
     title: '',
@@ -16,14 +17,21 @@ const initialWriteData:BoardDto ={
     categoryName: '',
 }
 
-export function useWrite(submitCallback:(message:string)=>void) {
+export function useBoardWrite(submitCallback:(message:string)=>void, initValues:BoardDto = initialWriteData) {
 
-    const [writeData, setWriteData] = useState<Partial<BoardDto>>(initialWriteData);
+    const [writeData, setWriteData] = useState<Partial<BoardDto>>(initValues);
     const router = useRouter();
+
+    useEffect(()=>{
+        setWriteData(initValues);
+    },[initValues])
 
     const fetchData = useCallback(():Promise<BoardDto> => {
             console.log('##########', writeData)
             try {
+                if (writeData.id) {
+                    return boardWriteApi(writeData);
+                }
                 return boardWriteApi(writeData);
             } catch (error) {
                 console.error('Failed to fetch list:', error);
@@ -65,16 +73,6 @@ export function useWrite(submitCallback:(message:string)=>void) {
     const goBackPage = ()=>{
         router.back();
     }
-
-    // useEffect(() => {
-    //     fetchData()
-    //         .then((res) => {
-    //             return setDetailResponse(res as detailResponseVO);
-    //         })
-    //         .catch((error) => {
-    //             console.error("Failed to resolve promise:", error);
-    //         });
-    // }, []);
 
     return { writeData, handleValueChange, handleSubmit, goBackPage};
 }

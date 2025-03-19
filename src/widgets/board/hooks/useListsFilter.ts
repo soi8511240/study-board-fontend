@@ -5,7 +5,7 @@
 import {useCallback, useEffect, useState} from "react";
 import { type listsRequestDTO ,type listsResponseVO} from '@/entities/board';
 import { setFilter } from '@/widgets/board';
-import {useAppDispatch, useAppSelector} from "@/app/hooks";
+import {useAppDispatch, useAppSelector} from "@/app/store/hooks";
 
 import { type DomChangeEventType, type DomFormsTypes} from "@/shared";
 

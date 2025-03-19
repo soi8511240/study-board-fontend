@@ -1,13 +1,17 @@
 import {boardDetailApi} from "@/entities/board";
 import {useEffect, useState} from "react";
 import {useParams} from "next/navigation";
-import {detailResponseVO} from "@/entities/board";
+import {BoardDto} from "@/entities/board";
+
+type Params = {
+    id:string
+}
 
 export function useDetail() {
 
-    const params:{id:string} = useParams();
+    const params:Params = useParams();
 
-    const [detailResponse, setDetailResponse] = useState<detailResponseVO | undefined>();
+    const [detail, setDetail] = useState<BoardDto>();
 
     const fetchData = ()=>{
         try {
@@ -21,12 +25,12 @@ export function useDetail() {
     useEffect(() => {
         fetchData()
             .then((res) => {
-                return setDetailResponse(res as detailResponseVO);
+                return setDetail(res as BoardDto);
             })
             .catch((error) => {
                 console.error("Failed to resolve promise:", error);
             });
     }, [params]);
 
-    return { detailResponse };
+    return { detail };
 }

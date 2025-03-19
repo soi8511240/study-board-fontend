@@ -4,42 +4,45 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b5b25780-2d97-4cfa-8911-6736b447e029" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/codes/api/api.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/codes/api/type.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/codes/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/codes/slicer/codesSlicer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/board/write/modal/ModalIsPassCheck.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/ui/Modal/hook/useModal.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/ui/Modal/slicer/modalSlicer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/ui/Modal/ui/CustomModal.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/ui/Modal/ui/GlobalModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/IntelliLang.xml" beforeDir="false" />
+    <list default="true" id="f43a5b81-db90-4413-a007-7c4a64e35093" name="Changes" comment="파일첨부작업중">
+      <change afterPath="$PROJECT_DIR$/src/app/board/modify/[id]/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/portal/ModalPortal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/codes/hooks/useCategory.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/board/write/ui/BoardModifyUi.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/frontend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/frontend.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/StoreProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/StoreProvider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/board/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/board/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/hooks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/hooks.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/StoreProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/store/StoreProvider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/board/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/board/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/css/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/hooks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/store/hooks.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/board/api/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/board/api/api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/board/write/hooks/useWrite.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/board/write/hooks/useWrite.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/store/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/board/api/type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/board/api/type.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/board/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/board/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/codes/api/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/codes/api/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/codes/api/type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/codes/api/type.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/codes/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/codes/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/codes/slicer/codesSlicer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/codes/slicer/codesSlicer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/board/write/api/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/board/write/api/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/board/write/api/type.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/board/write/hooks/useWrite.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/board/write/hooks/useBoardWrite.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/board/write/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/board/write/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/board/write/modal/ModalIsPassCheck.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/board/write/ui/BoardWriteUi.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/board/write/ui/BoardWriteUi.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/type/type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/type/type.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/ui/Modal/Alert.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ui/Modal/ui/Alert.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/Modal/hook/useModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ui/Modal/hook/useModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/Modal/slicer/modalSlicer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ui/Modal/slicer/modalSlicer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/Modal/ui/GlobalModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ui/Modal/ui/GlobalModal.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shared/ui/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ui/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/valid/validation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/valid/validation.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/widgets/board/hooks/useDetail.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/board/hooks/useDetail.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/widgets/board/hooks/useListsFetch.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/board/hooks/useListsFetch.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/widgets/board/hooks/useListsFilter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/board/hooks/useListsFilter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/board/ui/FilterUi.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/board/ui/FilterUi.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/board/ui/ListUi.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/board/ui/ListUi.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/board/ui/PagingUi.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/board/ui/PagingUi.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/widgets/board/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/board/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/widgets/board/model/boardSlicer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/board/model/boardSlicer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/widgets/board/ui/DetailUi.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/board/ui/DetailUi.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,23 +52,23 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "soi8511240"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;soi8511240&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/soi8511240/study-board-fontend.git",
-    "accountId": "9ccb65a1-2cf5-4bfb-bc85-389234207a92"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/soi8511240/study-board-fontend.git&quot;,
+    &quot;accountId&quot;: &quot;9ccb65a1-2cf5-4bfb-bc85-389234207a92&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 8
-}]]></component>
-  <component name="ProjectId" id="2uTvB21c0pRPEZPK8VTYmW6PcEG" />
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2uWXDJVW4cWAx27k93fsVjAGTio" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -73,28 +76,30 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/project/board-sts-react/backend",
+    "last_opened_file_path": "C:/project/board-sts-react/frontend/src/features/board/write/hooks",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "npm.dev.executor": "Run",
-    "npm.start.executor": "Run",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.39885056",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.excludes",
+    "settings.editor.selected.configurable": "com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable",
     "ts.external.directory.path": "C:\\project\\board-sts-react\\frontend\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\project\board-sts-react\frontend\src\features\board\write\hooks" />
+      <recent name="C:\project\board-sts-react\frontend\src\features\board\modify" />
+      <recent name="C:\project\board-sts-react\frontend\src\features\board\modify\ui" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\project\board-sts-react\frontend\src\features\board\write" />
+      <recent name="C:\project\board-sts-react\frontend\src\features\board\modify" />
     </key>
   </component>
   <component name="RunManager">
@@ -112,24 +117,30 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.25659.59" />
-        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.25659.59" />
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b5b25780-2d97-4cfa-8911-6736b447e029" name="Changes" comment="" />
-      <created>1742285242978</created>
+      <changelist id="f43a5b81-db90-4413-a007-7c4a64e35093" name="Changes" comment="" />
+      <created>1742365183314</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1742285242978</updated>
-      <workItem from="1742285247693" duration="4363000" />
+      <updated>1742365183314</updated>
+      <workItem from="1742365185697" duration="792000" />
+      <workItem from="1742366129735" duration="238000" />
+      <workItem from="1742366603637" duration="13204000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="파일첨부작업중" />
+    <option name="LAST_COMMIT_MESSAGE" value="파일첨부작업중" />
   </component>
 </project>

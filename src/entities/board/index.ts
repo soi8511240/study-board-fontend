@@ -7,5 +7,5 @@ export {
     type listsResponseVO,
     type listsBoardVO,
     type listsRequestDTO,
-    type detailResponseVO
+    type BoardDto
 } from './api/type';

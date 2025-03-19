@@ -1,6 +1,6 @@
 import {useEffect} from "react";
 
-import {useAppDispatch, useAppSelector} from "@/app/hooks";
+import {useAppDispatch, useAppSelector} from "@/app/store/hooks";
 import {type ModalState, setModal, initialModal} from "@/shared/ui/";
 
 export function useModal() {
@@ -23,9 +23,9 @@ export function useModal() {
         dispatch(initialModal());
     }
 
-    useEffect(()=>{
-        console.log('################## useEffect', open);
-    },[open]);
+    // useEffect(()=>{
+    //     console.log('################## useEffect', open);
+    // },[open]);
 
     return {type, open, title, message, component, callModal, closeModal};
 }

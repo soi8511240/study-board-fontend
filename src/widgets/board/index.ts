@@ -1,5 +1,5 @@
 /* reducer */
-export {default as reducer, selectBoard, getAllBoard, setFilter } from './model/boardSlicer';
+export {default as boardReducer, selectBoard, getAllBoard, setFilter } from './model/boardSlicer';
 
 /* ui */
 export { ListUi } from './ui/ListUi';

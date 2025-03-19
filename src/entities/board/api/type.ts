@@ -23,14 +23,28 @@ export type listsRequestDTO = {
     currentPage?: number;
 }
 
-export type detailResponseVO = {
-    id: number;
+// export type detailResponseVO = {
+//     id: number;
+//     title: string;
+//     writer: string;
+//     content: string;
+//     createdAt: string;
+//     updatedAt: string;
+//     viewCnt: number;
+//     categoryName: string;
+//     attachYn: string;
+// }
+export type BoardDto = {
+    id?: number;
     title: string;
     writer: string;
+    password: string;
+    rePassword: string;
     content: string;
-    createdAt: string;
-    updatedAt: string;
-    viewCnt: number;
     categoryName: string;
-    attachYn: string;
+    categoryCode?: string;
+    createdAt?: string;
+    updatedAt?: string;
+    viewCnt?: number;
+    attachYn?: string;
 }

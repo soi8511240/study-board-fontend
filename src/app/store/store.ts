@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
-import {reducer as boardReducer} from "@/widgets/board/";
-import {reducer as codeReducer} from "@/entities/codes/";
-import {modalReducer} from "@/shared/ui/";
+import {boardReducer} from "@/widgets/board";
+import {codeReducer} from "@/entities/codes";
+import {modalReducer} from "@/shared/ui";
 
 export const makeStore = () => {
     return configureStore({

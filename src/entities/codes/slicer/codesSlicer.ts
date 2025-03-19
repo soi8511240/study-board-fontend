@@ -3,19 +3,21 @@
  */
 
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import type { RootState } from '@/app/store'
+import type { RootState } from '@/app/store/store'
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { type Categories} from "../api/type";
-import axios from "axios";
+import {getCategoriesApi} from "@/entities/codes";
 
-const initialState:Categories[] = []
+const initialState = {
+    category: [] as Categories[]
+}
 
 // 비동기 공통 데이터 로드
 export const fetchCategories = createAsyncThunk(
-    "code/fetchCategories",
+    'code/fetchCategories',
     async () => {
-        const response = await axios.get("/api/categories"); // 실제 API 호출
-        return response.data;
+        const response = await getCategoriesApi();
+        return response;
     }
 );
 
@@ -23,18 +25,20 @@ export const codesSlicer = createSlice({
     name: 'codes',
     initialState,
     reducers: {
-        getCategories: (state, action:PayloadAction<Categories[]>) => {
-            state = action.payload;
-        }
+        setCategories: (state, action:PayloadAction<Categories[]>) => {
+            state.category = action.payload;
+        },
     },
     extraReducers: (builder) => {
         builder
-            .addCase(fetchCategories.rejected, (state, action) => {
+            .addCase(fetchCategories.fulfilled, (state, action: PayloadAction<Categories[]>) => {
+                state.category = action.payload;
             });
+
     }
 })
 
-export const { getCategories } = codesSlicer.actions;
+export const { setCategories } = codesSlicer.actions;
 
 export const selectCodes = (state: RootState) => state.codes
 export default codesSlicer.reducer;
