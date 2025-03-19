@@ -47,4 +47,8 @@ export type BoardDto = {
     updatedAt?: string;
     viewCnt?: number;
     attachYn?: string;
+    attachFiles?: File[] | null;
+    attachFile1?: FileList|null;
+    attachFile2?: FileList|null;
+    attachFile3?: FileList|null;
 }

@@ -6,6 +6,7 @@ import css from './BoardWriteUi.module.css';
 import {useBoardWrite} from "@/features/board/write";
 import {useModal} from "@/shared/ui";
 import {useCategory} from "@/entities/codes";
+// import {InputFile} from '@/shared/inputs';
 
 
 export const BoardWriteUi = ()=>{
@@ -34,7 +35,7 @@ export const BoardWriteUi = ()=>{
                     <th><label className="ess">category</label></th>
                     <td colSpan={3}>
                         {category && (
-                            <select className="select" name="categoryCode">
+                            <select className="select" name="categoryCode" value={writeData.categoryCode} onChange={handleValueChange}>
                                 {category.map(({id, name}) => (
                                     <option key={id} value={id}>
                                         { name}
@@ -68,10 +69,17 @@ export const BoardWriteUi = ()=>{
                     <th><label className="ess">Content</label></th>
                     <td colSpan={3}><textarea name="content" value={writeData.content} className="textarea" onChange={handleValueChange} /></td>
                 </tr>
-                {/*<tr>*/}
-                {/*    <th>File</th>*/}
-                {/*    <td colSpan={3}><input type="file" className="file" name="attachFiles" multiple/></td>*/}
-                {/*</tr>*/}
+                <tr>
+                    <th>File</th>
+                    <td colSpan={3}>
+                        <input type="file" className="file" name="attachFile1" accept="image/*,application/pdf" onChange={handleValueChange}/>
+                        <input type="file" className="file" name="attachFile2" accept="image/*,application/pdf" onChange={handleValueChange}/>
+                        <input type="file" className="file" name="attachFile3" accept="image/*,application/pdf" onChange={handleValueChange}/>
+                        {/*<InputFile name={'attachFile1'} onChange={handleValueChange} multiple={true}/>*/}
+                        {/*<InputFile name={'attachFile2'} onChange={handleValueChange}/>*/}
+                        {/*<InputFile name={'attachFile3'} onChange={handleValueChange}/>*/}
+                    </td>
+                </tr>
                 </tbody>
             </table>
             <div className="btns-foot">

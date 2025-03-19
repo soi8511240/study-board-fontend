@@ -48,9 +48,15 @@ export const DetailUi:React.FC = ()=> {
                             <th>AttachFiles</th>
                             <td>
                                 {detail.attachYn === 'Y' && (
-                                        <div>첨부파일있음</div>
-                                    )
-                                }
+                                    <ul>
+                                        {detail.attachFiles &&
+                                            detail.attachFiles.map((item, index) => (
+                                            <li key={index}>
+                                                <a href={item.fileUrl}>{item.originalFileName}</a>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
                             </td>
                         </tr>
                         <tr>

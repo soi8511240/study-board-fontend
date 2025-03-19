@@ -25,12 +25,13 @@ export function useDetail() {
     useEffect(() => {
         fetchData()
             .then((res) => {
+                console.log('#############useEffect ', res)
                 return setDetail(res as BoardDto);
             })
             .catch((error) => {
                 console.error("Failed to resolve promise:", error);
             });
-    }, [params]);
+    }, []);
 
     return { detail };
 }
