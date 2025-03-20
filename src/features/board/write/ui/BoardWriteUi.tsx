@@ -72,6 +72,7 @@ export const BoardWriteUi = ()=>{
                 <tr>
                     <th>File</th>
                     <td colSpan={3}>
+                        {/*Todo 배열로*/}
                         <input type="file" className="file" name="attachFile1" accept="image/*,application/pdf" onChange={handleValueChange}/>
                         <input type="file" className="file" name="attachFile2" accept="image/*,application/pdf" onChange={handleValueChange}/>
                         <input type="file" className="file" name="attachFile3" accept="image/*,application/pdf" onChange={handleValueChange}/>

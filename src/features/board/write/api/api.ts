@@ -55,14 +55,6 @@ const convertFormData = <T>(query:Partial<T>)=>{
             // 일반 텍스트 데이터 처리
             formData.append(key, value as string); // 배열이 아니면 일반 값 처리
         }
-        //
-        // console.log('####### key value',key,value);
-        // console.log('#########', formData);
-
-        // else if (value !== undefined && value !== null) {
-        //     // 일반 텍스트 데이터 처리
-        //     console.log('value',key,value)
-        // }
     });
 
     for (const [key, value] of formData.entries()) {

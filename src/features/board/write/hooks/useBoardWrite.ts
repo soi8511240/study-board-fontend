@@ -19,6 +19,7 @@ const initialWriteData:BoardDto ={
 }
 
 export function useBoardWrite(submitCallback:(message:string)=>void, initValues:BoardDto = initialWriteData) {
+    // submitCallback -> onSubmit
 
     const [writeData, setWriteData] = useState<Partial<BoardDto>>(initValues);
     const router = useRouter();
@@ -77,6 +78,7 @@ export function useBoardWrite(submitCallback:(message:string)=>void, initValues:
 
 
     const handleSubmit = useCallback(()=>{
+        // Todo: react hook form (lib)
         const validateResult = validation({id:'boardWrite',data:writeData});
         if (!validateResult.result) {
             submitCallback(validateResult.message);

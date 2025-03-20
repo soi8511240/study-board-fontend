@@ -4,7 +4,9 @@ import {getAllBoard} from "@/widgets/board";
 import {useCallback, useEffect} from "react";
 
 export function useListsFetch() {
-    const {boardLists, totalCnt, filter} = useAppSelector((state) => state.board)
+    // scope 를 좁게.. 다른걸로
+    const {boardLists, totalCnt, filter} =
+        useAppSelector((state) => state.board)
     const dispatch = useAppDispatch();
 
     const fetchData = useCallback(():Promise<listsResponseVO> => {

@@ -7,23 +7,28 @@ import {useBoardWrite} from "@/features/board/write";
 import {useModal} from "@/shared/ui";
 import {useDetail} from "@/widgets/board";
 import {useCategory} from "@/entities/codes";
+import {boardWriteApi} from "@/features/board/write";
 
 export const BoardModifyUi = ()=>{
 
     const {callModal} = useModal();
 
-    const displayMessage = (message:string)=>{
-        callModal({ message });
-        callModal({ type: 'Custom', title:'알림', message,
-                // component: <ModalIsPassCheck />
-        });
+    // const displayMessage = (message:string)=>{
+    //     callModal({ message });
+    //     callModal({ type: 'Custom', title:'알림', message,
+    //             // component: <ModalIsPassCheck />
+    //     });
+    // }
+
+    const api = ()=>{ // fetch 로직.
+
     }
 
     const {category} = useCategory();
 
     const { detail } = useDetail();
 
-    const {writeData, handleValueChange, handleSubmit, goBackPage} = useBoardWrite(displayMessage, detail);
+    const {writeData, handleValueChange, handleSubmit, goBackPage} = useBoardWrite(api, detail);
 
     return (
         <>
