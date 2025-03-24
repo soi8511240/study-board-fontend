@@ -4,11 +4,17 @@
  */
 
 import {useCallback, useEffect, useState} from "react";
-import { type listsRequestDTO ,type listsResponseVO} from '@/entities/board';
+import { type listsRequestDTO ,
+    // type listsResponseVO
+} from '@/entities/board';
 import { setFilter } from '@/widgets/board';
-import {useAppDispatch, useAppSelector} from "@/app/store/hooks";
+import {
+    // useAppDispatch,
+    // useAppSelector
+} from "@/app/store/hooks";
 
 import { type DomChangeEventType, type DomFormsTypes} from "@/shared";
+import {useParams} from "next/navigation";
 
 const initialFilter: listsRequestDTO = {
     categoryId: "",
@@ -20,8 +26,9 @@ const initialFilter: listsRequestDTO = {
 
 export function useListsFilter(){
 
-    const {filter}  = useAppSelector((state) => state.board) as listsResponseVO;
-    const dispatch = useAppDispatch();
+    // const {filter}  = useAppSelector((state) => state.board) as listsResponseVO;
+    const {filter} = useParams();
+    // const dispatch = useAppDispatch();
 
     /* 필터 값 초기화 */
     const [filterValue, setFilterValue] = useState<listsRequestDTO>(filter as listsRequestDTO);
@@ -49,7 +56,7 @@ export function useListsFilter(){
      * 검색이벤트 함수
      */
     const handleSubmit = useCallback((params:listsRequestDTO = {})=>{
-        dispatch(setFilter({...filter,...params}));
+        setFilter({...filter,...params});
     },[filter]);
 
     /**

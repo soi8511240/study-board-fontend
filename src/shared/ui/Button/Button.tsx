@@ -1,15 +1,15 @@
 type Props = {
-    onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void
+    onclick?: (e: React.MouseEvent<HTMLButtonElement>) => void
     label : string,
     primary?: boolean,
     type?: 'button'
     disabled?: boolean
 }
 
-export function Button({onClick, label, primary, type, disabled}:Props){
+export function Button({onclick, label, primary, type, disabled}:Props){
     return (
         <button
-            onClick={onClick}
+            onClick={onclick}
             type={type}
             disabled={disabled}
             className={primary? 'btn btn-primary' : 'btn'}

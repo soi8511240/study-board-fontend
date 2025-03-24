@@ -1,24 +1,25 @@
+'use server';
 
-import React, {use} from 'react';
-// import {useRouter} from "next/navigation";
-// import {useDetail} from "@/widgets/board";
+import React from 'react';
 import {boardDetailApi} from "@/entities/board";
+import {Button} from "@/shared/ui";
+// import {useRouter} from 'next/navigation';
 
 type Props = {
     id: string
 }
 
-export function DetailUi({id}:Props) {
-    const detail = use(boardDetailApi({id: id}));
+export async function DetailUi({id}:Props) {
+    const detail = await boardDetailApi({id});
 
     // const router = useRouter();
 
     const goBackPage = ()=>{
         // router.push('/board');
     }
-
+    //
     const goModifyPage = (id:number)=>{
-        console.log('id', id);
+        // console.log('id', id);
         // router.push(`/board/modify/${id}`);
     }
 
@@ -79,19 +80,24 @@ export function DetailUi({id}:Props) {
                         </tbody>
                     </table>
                     <div className="btns-foot">
-                        {/*<div className="left">*/}
-                        {/*    <button type="button" className="btn btn-default"*/}
-                        {/*    onClick={()=>{goModifyPage(detail.id as number)}}*/}
-                        {/*>수정</button>*/}
-                        {/*</div>*/}
-                        {/*    <div className="center">*/}
+                        <div className="left">
+                            <Button type="button"
+                                    label={'수정'}
+                                onclick={()=>{goModifyPage(detail.id as number)}}
+                            />
+                            {/*<button type="button" className="btn btn-default"*/}
+                            {/*    onClick={()=>{goModifyPage(detail.id as number)}}*/}
+                            {/*>수정</button>*/}
+                        </div>
+                            <div className="center">
 
-                        {/*    </div>*/}
-                        {/*<div className="right">*/}
-                        {/*    <button type="button" className="btn btn-default"*/}
-                        {/*            onClick={goBackPage}*/}
-                        {/*    >목록</button>*/}
-                        {/*</div>*/}
+                            </div>
+                        <div className="right">
+                            <Button type="button"
+                                    label={'목록'}
+                                onclick={goBackPage}
+                            />
+                        </div>
                     </div>
                 </>
             )}

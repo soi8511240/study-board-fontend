@@ -1,39 +1,14 @@
 import {apiInstance} from '@/shared/db/axios';
-import {listsResponseVO} from "@/entities/board";
-//
-// class Api {
-//     protected api: AxiosInstance;
-//     private uri: string;
-//
-//     constructor(uri:string) {
-//         this.uri = uri;
-//         this.api = apiInstance;
-//     }
-//
-//     lists(query = {}, config: AxiosRequestConfig = {method: 'get'}): Promise<listsResponseVO> {
-//         return this.api.get(`${this.uri}/lists`, {params:query})
-//             .then(({data}) => {
-//                 return data;
-//             }).finally(() => {});
-//     }
-//
-//     detailById(query:{id?:string} = {}, config: AxiosRequestConfig = {method: 'get'}):
-//         Promise<listsBoardVO> {
-//         return this.api.get(`${this.uri}/detail`, {params:query})
-//             .then(({data}) => {
-//                 return data;
-//             }).finally(() => {});
-//     }
-// }
+import {BoardDto, listsResponseVO} from "@/entities/board";
 
 const boardListsApi = async (query={}):Promise<listsResponseVO>=>{
     return apiInstance.get('/board/lists', {params:query})
         .then(({data}) => {
-            return data;
+            return data.data;
         }).finally(() => {});
 }
 
-const boardDetailApi = async (query={})=>{
+const boardDetailApi = async (query={}):Promise<BoardDto>=>{
     return apiInstance.get(`/board/detail`, {params:query})
         .then(({data}) => {
             console.log('detail data', data.data)

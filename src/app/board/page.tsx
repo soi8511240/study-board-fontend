@@ -1,20 +1,21 @@
-// 'use client'
 'use server';
 
-import React from "react";
-// import { ListUi, FilterUi, PagingUi } from '@/widgets/board';
-import { headers } from 'next/headers';
+import React, {Suspense} from "react";
+import {
+    ListUi,
+    // FilterUi,
+    // PagingUi
+} from '@/widgets/board';
 
 export default async function Page() {
 
-    const headersList = headers();
-    const headerPathname = headersList.get('x-pathname') || "";
     return (
         <>
-            {headerPathname}
-            {/*<FilterUi />*/}
-            {/*<ListUi />*/}
-            {/*<PagingUi />*/}
+            <Suspense fallback={<div>Loading...</div>}>
+                {/*<FilterUi />*/}
+                <ListUi />
+                {/*<PagingUi />*/}
+            </Suspense>
         </>
     );
 }

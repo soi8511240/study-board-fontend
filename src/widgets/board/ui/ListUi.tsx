@@ -1,14 +1,31 @@
-'use client'
+'use server'
 
 import React from 'react';
 
-import {listsBoardVO, listsResponseVO} from '@/entities/board';
+import {boardListsApi, listsBoardVO,
+    // type listsResponseVO
+} from '@/entities/board';
 
 import Link from "next/link";
-import {useListsFetch} from "@/widgets/board";
+// import {useListsFetch} from "@/widgets/board";
+import { headers } from 'next/headers'
 
-export const ListUi = ()=> {
-    const {boardLists, totalCnt} = useListsFetch() as listsResponseVO;
+export async function ListUi(){
+    const headerList = await headers()
+    const filter = headerList.get('x-path-type') || undefined;
+
+    const result = await boardListsApi({filter});
+
+    const {boardLists, totalCnt} = result;
+    // return (
+    //     <ul>
+    //         {data.map((item:boardDTO) => (
+    //             <li key={item.id}>{item.name}</li>
+    //         ))}
+    //     </ul>
+    // );
+
+
     return (
         <>
             <div className="table-top">총 {totalCnt}건</div>
