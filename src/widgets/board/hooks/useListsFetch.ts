@@ -1,3 +1,5 @@
+'use client'
+
 import {useAppDispatch, useAppSelector} from "@/app/store/hooks";
 import {boardListsApi, type listsResponseVO} from '@/entities/board';
 import {getAllBoard} from "@/widgets/board";
@@ -11,7 +13,6 @@ export function useListsFetch() {
 
     const fetchData = useCallback(():Promise<listsResponseVO> => {
             try {
-                console.log('fetchData', filter)
                 return boardListsApi(filter);
             } catch (error) {
                 console.error('Failed to fetch list:', error);
@@ -26,7 +27,6 @@ export function useListsFetch() {
             .then(res => {
                 dispatch(getAllBoard(res));
             });
-        console.log('#############useEffect ', boardLists)
     }, [filter]);
 
     return {boardLists, totalCnt};

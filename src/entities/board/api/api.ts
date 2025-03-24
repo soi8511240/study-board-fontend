@@ -36,7 +36,8 @@ const boardListsApi = async (query={}):Promise<listsResponseVO>=>{
 const boardDetailApi = async (query={})=>{
     return apiInstance.get(`/board/detail`, {params:query})
         .then(({data}) => {
-            return data;
+            console.log('detail data', data.data)
+            return data.data;
         }).finally(() => {});
 }
 

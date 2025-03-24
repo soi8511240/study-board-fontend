@@ -1,7 +1,7 @@
 'use client';
 
-import {Alert} from './Alert'
-import {CustomModal} from './CustomModal'
+import {Alert} from './Alert';
+import {CustomModal} from './CustomModal';
 import {JSX} from "react";
 import {useAppSelector} from "@/app/store/hooks";
 

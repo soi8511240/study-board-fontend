@@ -1,9 +1,9 @@
 //
-export const URL:string = 'http://localhost:8001/';
+export const URL:string = 'http://localhost:8001';
 export const DOMAIN:string = 'http://localhost:3000';
 //
 // /* axios */
-export const API_URL:string = '/api';
+export const API_URL:string = URL+'/api';
 export const AXIOS_HEADERS:Record<string,string> = {
     // "X-Requested-With": "XMLHttpRequest",
     'Content-Type': 'application/json',

@@ -5,6 +5,7 @@
 import axios from 'axios';
 import {API_URL, AXIOS_HEADERS} from '@/shared/constants/Constants';
 
+console.log('API_URL', API_URL)
 const apiInstance = axios.create({
     baseURL : API_URL,
     headers: AXIOS_HEADERS,

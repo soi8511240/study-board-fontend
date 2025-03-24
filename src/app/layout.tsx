@@ -1,11 +1,11 @@
-'use client'
+// 'use client'
 
 // import type { Metadata } from "next";
 // import "./css/globals.css";
 import "./css/style.css";
 
 import ReduxProvider from "./store/StoreProvider";
-import {GlobalModal} from '@/shared/ui/';
+// import {GlobalModal} from '@/shared/ui/';
 
 // export const metadata: Metadata = {
 //   title: "Create Next App",
@@ -25,7 +25,7 @@ export default function RootLayout({
         <div className="wrap">
           {children}
         </div>
-        <GlobalModal />
+        {/*<GlobalModal />*/}
       </ReduxProvider>
     </body>
     </html>
