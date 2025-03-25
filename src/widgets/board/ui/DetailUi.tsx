@@ -16,11 +16,12 @@ export async function DetailUi({id}:Props) {
 
     const goBackPage = ()=>{
         // router.push('/board');
+        return '/board';
     }
     //
     const goModifyPage = (id:number)=>{
         // console.log('id', id);
-        // router.push(`/board/modify/${id}`);
+        return `/board/modify/${id}`;
     }
 
     return (
@@ -81,9 +82,9 @@ export async function DetailUi({id}:Props) {
                     </table>
                     <div className="btns-foot">
                         <div className="left">
-                            <Button type="button"
-                                    label={'수정'}
-                                onclick={()=>{goModifyPage(detail.id as number)}}
+                            <Button
+                                href={`/board/modify/${id}`}
+                                label={'수정'}
                             />
                             {/*<button type="button" className="btn btn-default"*/}
                             {/*    onClick={()=>{goModifyPage(detail.id as number)}}*/}
@@ -93,9 +94,9 @@ export async function DetailUi({id}:Props) {
 
                             </div>
                         <div className="right">
-                            <Button type="button"
-                                    label={'목록'}
-                                onclick={goBackPage}
+                            <Button
+                                href={'/board'}
+                                label={'목록'}
                             />
                         </div>
                     </div>

@@ -18,14 +18,3 @@ export default async function Page({ params }:Params) {
         </Suspense>
     );
 }
-//
-// export default async function Page({params}: { params: { id: string } }) {
-//
-//     return (
-//         <Suspense fallback={<div>Loading...</div>}>
-//             {/*{params.id}*/}
-//             <DetailUi id={params.id}/>
-//         </Suspense>
-//     );
-// }
-

@@ -1,9 +1,9 @@
-import {
-    Dialog,
-    DialogBody,
-    DialogFooter,
-    DialogHeader,
-} from "@material-tailwind/react";
+// import {
+//     Dialog,
+//     DialogBody,
+//     DialogFooter,
+//     DialogHeader,
+// } from "@material-tailwind/react";
 import {Button, useModal} from "@/shared/ui";
 
 // type Props = {
@@ -20,27 +20,21 @@ export function CustomModal() {
     // handler={handler}
     return (
         <>
-            <Dialog
-                open={open}
-                handler={() => {closeModal()}}
-                animate={{
-                    mount: { scale: 1, y: 0 },
-                    unmount: { scale: 0.9, y: -100 },
-                }}
-                size={'xs'}
-            >
-                <DialogHeader>{title}</DialogHeader>
-                <DialogBody>
+            <div className={open?'open':''}>
+                <div className="modal-title">
+                    {title}
+                </div>
+                <div className="modal-container">
                     {component}
-                </DialogBody>
-                <DialogFooter>
+                </div>
+                <div className="modal-footer">
                     <Button
-                        onClick={() => {closeModal()}}
+                        onclick={() => {closeModal()}}
                         label={'확인'}
                         primary
                     />
-                </DialogFooter>
-            </Dialog>
+                </div>
+            </div>
         </>
     )
 }

@@ -3,7 +3,6 @@
 // import type { Metadata } from "next";
 // import "./css/globals.css";
 import "./css/style.css";
-
 import ReduxProvider from "./store/StoreProvider";
 // import {GlobalModal} from '@/shared/ui/';
 
