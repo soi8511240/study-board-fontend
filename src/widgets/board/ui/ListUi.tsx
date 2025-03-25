@@ -1,22 +1,21 @@
-'use server'
+'use client'
 
-import React from 'react';
+import React, {use} from 'react';
 
-import {boardListsApi, listsBoardVO,
-    // type listsResponseVO
-} from '@/entities/board';
+import {BoardDto, type BoardListsResponse} from '@/entities/board';
 
 import Link from "next/link";
 // import {useListsFetch} from "@/widgets/board";
-import { headers } from 'next/headers'
 
-export async function ListUi(){
-    const headerList = await headers()
-    const filter = headerList.get('x-path-type') || undefined;
+type Props = {
+    responsePromise:Promise<BoardListsResponse>
+}
 
-    const result = await boardListsApi({filter});
+export function ListUi({responsePromise}:Props){
+    const response = use(responsePromise);
+    const {boardLists, totalCnt} = response;
 
-    const {boardLists, totalCnt} = result;
+    // const {boardLists, totalCnt} = result;
     // return (
     //     <ul>
     //         {data.map((item:boardDTO) => (
@@ -56,7 +55,7 @@ export async function ListUi(){
                 }
 
                 {boardLists &&
-                    boardLists.map((item: listsBoardVO) => (
+                    boardLists.map((item: BoardDto) => (
                         <tr key={item.id}>
                             <td>{item.categoryName}</td>
                             <td><Link href={`/board/${item.id}`}>{item.title},{item.attachYn}</Link>

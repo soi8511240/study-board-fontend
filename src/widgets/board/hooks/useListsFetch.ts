@@ -1,7 +1,7 @@
 'use client'
 
 import {useAppDispatch, useAppSelector} from "@/app/store/hooks";
-import {boardListsApi, type listsResponseVO} from '@/entities/board';
+import {boardListsApi, type BoardListsResponse} from '@/entities/board';
 import {getAllBoard} from "@/widgets/board";
 import {useCallback, useEffect} from "react";
 
@@ -11,7 +11,7 @@ export function useListsFetch() {
         useAppSelector((state) => state.board)
     const dispatch = useAppDispatch();
 
-    const fetchData = useCallback(():Promise<listsResponseVO> => {
+    const fetchData = useCallback(():Promise<BoardListsResponse> => {
             try {
                 return boardListsApi(filter);
             } catch (error) {

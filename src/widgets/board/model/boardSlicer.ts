@@ -5,14 +5,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { RootState } from '@/app/store/store'
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { listsRequestDTO, listsResponseVO} from "@/entities/board";
+import { type BoardListsFilter, type BoardListsResponse} from "@/entities/board";
 
 // const initialState = {
 //     lists: [],
 //     pageCnt: 0
-// } satisfies listsResponseVO as listsResponseVO;
+// } satisfies BoardListsResponse as BoardListsResponse;
 
-const initialState:listsResponseVO = {
+const initialState:BoardListsResponse = {
     boardLists: [],
     totalCnt: 0,
     filter:{
@@ -28,11 +28,11 @@ export const boardSlicer = createSlice({
     name: 'board',
     initialState,
     reducers: {
-        getAllBoard: (state, action:PayloadAction<listsResponseVO>) => {
+        getAllBoard: (state, action:PayloadAction<BoardListsResponse>) => {
             state.boardLists = action.payload.boardLists;
             state.totalCnt = action.payload.totalCnt;
         },
-        setFilter: (state, action:PayloadAction<listsRequestDTO>) => {
+        setFilter: (state, action:PayloadAction<BoardListsFilter>) => {
             state.filter = action.payload;
         }
     }

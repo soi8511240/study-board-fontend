@@ -1,46 +1,24 @@
-export type listsBoardVO = {
-    id: number;
-    title: string;
-    writer: string;
-    createdAt: string;
-    updatedAt: string;
-    viewCnt: number;
-    categoryName: string;
-    attachYn: string;
-}
-
-export type listsResponseVO = {
+export type BoardListsResponse = {
     totalCnt: number;
-    boardLists?: listsBoardVO[];
-    filter?: listsRequestDTO;
+    boardLists?: BoardDto[];
+    filter?: BoardListsFilter;
 }
 
-export type listsRequestDTO = {
-    categoryId?: string ;
-    keyword?: string ;
-    fromDt?: string ;
-    toDt?: string ;
-    currentPage?: number;
+export type BoardListsFilter = {
+    categoryId?: string;
+    keyword?: string;
+    fromDt?: string;
+    toDt?: string;
+    currentPage?: string;
 }
 
-// export type detailResponseVO = {
-//     id: number;
-//     title: string;
-//     writer: string;
-//     content: string;
-//     createdAt: string;
-//     updatedAt: string;
-//     viewCnt: number;
-//     categoryName: string;
-//     attachYn: string;
-// }
 export type BoardDto = {
     id?: number;
     title: string;
     writer: string;
-    password: string;
-    rePassword: string;
-    content: string;
+    password?: string;
+    rePassword?: string;
+    content?: string;
     categoryName: string;
     categoryCode?: string;
     createdAt?: string;

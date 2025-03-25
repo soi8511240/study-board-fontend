@@ -1,7 +1,7 @@
 'use client'
 
 import React, {useEffect, useState} from 'react';
-import {listsRequestDTO} from "@/entities/board";
+import {type BoardListsFilter} from "@/entities/board";
 import Link from "next/link";
 import {useListsFetch, useListsFilter} from "@/widgets/board";
 
@@ -15,7 +15,7 @@ export const PagingUi = () =>
     const [pageCnt, setPageCnt] = useState<number>(0);
 
     const handlePagingClick = (value:number = 1 )=>{
-        handleSubmit({currentPage:value} as listsRequestDTO);
+        handleSubmit({currentPage:value} as BoardListsFilter);
     }
 
     useEffect(() => {
