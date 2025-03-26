@@ -188,9 +188,11 @@ input::placeholder{
         padding: 4px;
         height: 30px;
     }
-    button:hover,button.active{
-        text-decoration: underline;
-        font-weight: bold;
+    ul {
+        button:hover,button.active{
+            text-decoration: underline;
+            font-weight: bold;
+        }
     }
 }
 .select{

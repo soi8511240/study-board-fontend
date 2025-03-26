@@ -1,12 +1,8 @@
 'use server'
 
 import React, {Suspense} from "react";
-import {
-    FilterUi,
-    ListUi,
-    // PagingUi
-} from '@/widgets/board';
-import {boardListsApi, type BoardListsFilter} from "@/entities/board";
+import { FilterUi, ListUi, PagingUi } from '@/widgets/board';
+import { boardListsApi, type BoardListsFilter } from "@/entities/board";
 
 const filterInit:BoardListsFilter = {
     categoryId: '',
@@ -15,6 +11,7 @@ const filterInit:BoardListsFilter = {
     toDt: '',
     currentPage: '1'
 }
+
 type Props = {
     searchParams: BoardListsFilter
 }
@@ -35,7 +32,10 @@ export default async function Page({ searchParams }:Props) {
             <Suspense fallback={<div>Loading...</div>}>
                 <FilterUi filterInit={filter}/>
                 <ListUi responsePromise={boardListsPromise}/>
-                {/*<PagingUi />*/}
+                <PagingUi
+                    responsePromise={boardListsPromise}
+                    filterInit={filter}
+                />
             </Suspense>
         </>
     );
