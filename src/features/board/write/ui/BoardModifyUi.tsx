@@ -1,30 +1,23 @@
 'use client'
 
-import React from 'react';
+import React, {startTransition, use} from 'react';
 
 import css from './BoardWriteUi.module.css';
-// import {useBoardWrite} from "@/features/board/write";
-// import {useModal} from "@/shared/ui";
-// import {useDetail} from "@/widgets/board";
-// import {useCategory} from "@/entities/codes";
-// import {boardWriteApi} from "@/features/board/write";
+import {type BoardDto} from "@/entities/board";
+import {type Categories} from "@/entities/codes";
+import {boardWriteApi} from "@/features/board/write";
 
-export const BoardModifyUi = ()=>{
+type Props = {
+    detailPromise:Promise<BoardDto>;
+    categoryPromise:Promise<Categories[]>;
+}
 
-    // const {callModal} = useModal();
-
-    // const displayMessage = (message:string)=>{
-    //     callModal({ message });
-    //     callModal({ type: 'Custom', title:'알림', message,
-    //             // component: <ModalIsPassCheck />
-    //     });
-    // }
-
-    // const {category} = useCategory();
-
-    // const { detail } = useDetail();
+export const BoardModifyUi = ({detailPromise, categoryPromise}:Props)=>{
+    const detail = use(detailPromise);
+    const categories = use(categoryPromise);
 
     // const {writeData, handleValueChange, handleSubmit, goBackPage} = useBoardWrite(api, detail);
+    // const {register, handleSubmit} = useForm();
 
     return (
         <>
@@ -39,20 +32,20 @@ export const BoardModifyUi = ()=>{
                 <tr>
                     <th><label className="ess">category</label></th>
                     <td colSpan={3}>
-                        {/*{category && (*/}
-                        {/*    <select className="select" name="categoryCode">*/}
-                        {/*        {category.map(({id, name}) => (*/}
-                        {/*            <option key={id} value={id} selected={id === writeData.categoryCode}>*/}
-                        {/*                { name}*/}
-                        {/*            </option>*/}
-                        {/*        ))}*/}
-                        {/*    </select>*/}
-                        {/*)}*/}
+                        {categories && (
+                            <select className="select" name="categoryCode">
+                                {categories.map(({id, name}) => (
+                                    <option key={id} value={id} selected={id === detail.categoryCode}>
+                                        { name}
+                                    </option>
+                                ))}
+                            </select>
+                        )}
                     </td>
                 </tr>
                 <tr>
                     <th><label className="ess">작성자</label></th>
-                    {/*<td colSpan={3}><input type="text" name="writer" value={writeData.writer} onChange={handleValueChange} required /></td>*/}
+                    {/*<td colSpan={3}><input type="text" name="writer" value={detail.writer} onChange={handleValueChange} required /></td>*/}
                 </tr>
                 {/*<tr>*/}
                 {/*    <th><label className="ess">Password</label></th>*/}
@@ -61,18 +54,18 @@ export const BoardModifyUi = ()=>{
                 {/*            display:'flex',*/}
                 {/*            gap:'10px'*/}
                 {/*        }}>*/}
-                {/*            <input type="password" name="password" value={writeData.password} onChange={handleValueChange} />*/}
-                {/*            <input type="password" name="rePassword" value={writeData.rePassword} onChange={handleValueChange} />*/}
+                {/*            <input type="password" name="password" value={detail.password} onChange={handleValueChange} />*/}
+                {/*            <input type="password" name="rePassword" value={detail.rePassword} onChange={handleValueChange} />*/}
                 {/*        </div>*/}
                 {/*    </td>*/}
                 {/*</tr>*/}
                 <tr>
                     <th><label className="ess">제목</label></th>
-                    {/*<td colSpan={3}><input type="text" value={writeData.title} onChange={handleValueChange} name="title" /></td>*/}
+                    {/*<td colSpan={3}><input type="text" value={detail.title} onChange={handleValueChange} name="title" /></td>*/}
                 </tr>
                 <tr>
                     <th><label className="ess">Content</label></th>
-                    {/*<td colSpan={3}><textarea name="content" value={writeData.content} className="textarea" onChange={handleValueChange} /></td>*/}
+                    {/*<td colSpan={3}><textarea name="content" value={detail.content} className="textarea" onChange={handleValueChange} /></td>*/}
                 </tr>
                 <tr>
                     <th>File</th>

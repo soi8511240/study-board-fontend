@@ -1,10 +1,26 @@
 import {BoardModifyUi} from "@/features/board/write";
-import React from "react";
+import React, {Suspense} from "react";
+import {boardDetailApi} from "@/entities/board";
+import {boardCategoryApi} from "@/entities/codes";
 
-export default function Page(){
+type Params = {
+    params: {
+        id: string
+    }
+}
+
+export default async function Page({ params }:Params) {
+    const { id } = await params;
+    const detailPromise = boardDetailApi({id});
+    const boardCategoriesPromise = boardCategoryApi();
+
     return (
-        <>
-            <BoardModifyUi />
-        </>
-    )
+        <Suspense fallback={<div>Loading...</div>}>
+            {/* params.id를 정상적으로 처리 */}
+            <BoardModifyUi
+                detailPromise={detailPromise}
+                categoryPromise={boardCategoriesPromise}
+            />
+        </Suspense>
+    );
 }

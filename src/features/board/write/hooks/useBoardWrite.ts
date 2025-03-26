@@ -1,47 +1,40 @@
 'use client'
 
-import {useRouter} from 'next/navigation';
-
-import {useCallback, useEffect, useState} from "react";
-import {boardWriteApi} from "@/features/board/write";
+import {useCallback, useState} from "react";
 
 import {type DomChangeEventType, type DomFormsTypes, validation} from "@/shared";
 import {type BoardDto} from "@/entities/board";
 
 const initialWriteData:BoardDto ={
-    title: '',
-    writer: '',
-    password: '',
-    rePassword: '',
-    content: '',
+    title: 'title test',
+    writer: 'test writer',
+    password: '12341234',
+    rePassword: '12341234',
+    content: 'content ',
     categoryName: '',
     attachFiles: []
 }
 
-export function useBoardWrite(submitCallback:(message:string)=>void, initValues:BoardDto = initialWriteData) {
+export function useBoardWrite(submitAction:(param:BoardDto)=>void, initValues:BoardDto=initialWriteData) {
     // submitCallback -> onSubmit
 
-    const [writeData, setWriteData] = useState<Partial<BoardDto>>(initValues);
-    const router = useRouter();
+    const initData = {...initialWriteData, initValues} ;
+    const [writeData, setWriteData] = useState<BoardDto>(initData);
 
-    useEffect(()=>{
-        setWriteData(initValues);
-    },[initValues])
-
-    const fetchData = useCallback(():Promise<BoardDto> => {
-            try {
-                if (writeData.id) {
-                    // update api 함수실행
-                    // return boardWriteApi(writeData);
-                }
-                return boardWriteApi(writeData);
-            } catch (error) {
-                console.error('Failed to fetch list:', error);
-                return Promise.reject(error);
-            }
-        }
-        ,[writeData]
-    )
+    // const fetchData = useCallback(():Promise<BoardDto> => {
+    //         try {
+    //             if (writeData.id) {
+    //                 // update api 함수실행
+    //                 // return boardWriteApi(writeData);
+    //             }
+    //             return boardWriteApi(writeData);
+    //         } catch (error) {
+    //             console.error('Failed to fetch list:', error);
+    //             return Promise.reject(error);
+    //         }
+    //     }
+    //     ,[writeData]
+    // )
 
     /**
      * 필터 입력 필드의 변경 이벤트 처리 함수
@@ -60,7 +53,6 @@ export function useBoardWrite(submitCallback:(message:string)=>void, initValues:
             return;
         }
 
-
         //input,select 처리
         const { name, value } = e.target as DomFormsTypes;
         setWriteData((oldVal) => ({
@@ -76,44 +68,16 @@ export function useBoardWrite(submitCallback:(message:string)=>void, initValues:
         }));
     };
 
-
     const handleSubmit = useCallback(()=>{
         // Todo: react hook form (lib)
         const validateResult = validation({id:'boardWrite',data:writeData});
         if (!validateResult.result) {
-            submitCallback(validateResult.message);
+            submitAction(writeData);
             return
         }
 
-        fetchData()
-            .then((res) => {
-                console.log('###', res)
-                goDetailPage(res);
-            })
     },[writeData])
 
-    // const handleSubmit = ()=>{
-    //     const validateResult = validation({id:'boardWrite',data:writeData});
-    //     if (!validateResult.result) {
-    //         submitCallback(validateResult.message);
-    //         return
-    //     }
-    //
-    //     fetchData()
-    //         .then((res) => {
-    //             console.log('###', res)
-    //             // goDetailPage(res);
-    //         })
-    // }
-
-    const goDetailPage = (res:string)=>{
-        router.push(`/board/${res}`);
-    }
-
-    const goBackPage = ()=>{
-        router.back();
-    }
-
-    return { writeData, handleValueChange, handleFileRemove, handleSubmit, goBackPage};
+    return { writeData, handleValueChange, handleFileRemove, handleSubmit};
 }
 
