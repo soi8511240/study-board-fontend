@@ -16,7 +16,10 @@ export function FilterUi ({filterInit}: Props) {
 
     // onSubmit 이벤트 핸들러 : 필터값을 searchParam에 반영함
     const onSubmit = (param:BoardListsFilter) => {
-        setSearchParams(param)
+        setSearchParams({
+            ...param,
+            currentPage: '1'
+        })
     }
 
     /**
