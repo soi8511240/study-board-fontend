@@ -6,7 +6,7 @@ import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import type { RootState } from '@/app/store/store'
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { type Categories} from "../api/type";
-import {getCategoriesApi} from "@/entities/codes";
+import {boardCategoryApi} from "@/entities/codes";
 
 const initialState = {
     category: [] as Categories[]
@@ -16,7 +16,7 @@ const initialState = {
 export const fetchCategories = createAsyncThunk(
     'code/fetchCategories',
     async () => {
-        const response = await getCategoriesApi();
+        const response = await boardCategoryApi();
         return response;
     }
 );

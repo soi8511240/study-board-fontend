@@ -1,24 +1,26 @@
 'use client'
 
-import React from 'react';
+import React, {use} from 'react';
 
 import css from './BoardWriteUi.module.css';
 import {useBoardWrite} from "@/features/board/write";
-import {useModal} from "@/shared/ui";
-import {useCategory} from "@/entities/codes";
-// import {InputFile} from '@/shared/inputs';
+import {Categories} from "@/entities/codes";
 
+type Props = {
+    categoryPromise:Promise<Categories[]>
+}
 
-export const BoardWriteUi = ()=>{
+export const BoardWriteUi = ({categoryPromise}:Props)=>{
 
-    const {callModal} = useModal();
+    // const {callModal} = useModal();
+    //
+    // const displayMessage = (message:string)=>{
+    //     callModal({ message });
+    //     callModal({ type: 'Custom', title:'alert', message, component: <ModalIsPassCheck /> });
+    // }
+    const category = use(categoryPromise);
 
-    const displayMessage = (message:string)=>{
-        callModal({ message });
-        // callModal({ type: 'Custom', title:'alert', message, component: <ModalIsPassCheck /> });
-    }
-
-    const {category} = useCategory();
+    // const {category} = useCategory();
     const {writeData, handleValueChange, handleSubmit, goBackPage} = useBoardWrite(displayMessage);
 
     return (
