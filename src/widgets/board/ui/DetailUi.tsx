@@ -1,32 +1,30 @@
-'use server';
+'use client';
 
-import React from 'react';
-import {boardDetailApi} from "@/entities/board";
+import React, {use} from 'react';
 import {Button} from "@/shared/ui";
-// import {useRouter} from 'next/navigation';
+import {BoardDto} from "@/entities/board";
+import {useRouter} from "next/navigation";
 
 type Props = {
-    id: string
+    detailPromise: Promise<BoardDto>
 }
 
-export async function DetailUi({id}:Props) {
-    const detail = await boardDetailApi({id});
+export function DetailUi({detailPromise}:Props) {
 
-    // const router = useRouter();
+    const detail = use(detailPromise);
+
+    const router = useRouter();
 
     const goBackPage = ()=>{
-        // router.push('/board');
-        return '/board';
+        router.push('/board');
     }
-    //
+
     const goModifyPage = (id:number)=>{
-        // console.log('id', id);
-        return `/board/modify/${id}`;
+        router.push(`/board/modify/${id}`);
     }
 
     return (
         <>
-            id:{id}
             {detail && (
                 <>
                     <table className="table-horizontal">
@@ -82,21 +80,17 @@ export async function DetailUi({id}:Props) {
                     </table>
                     <div className="btns-foot">
                         <div className="left">
-                            <Button
-                                href={`/board/modify/${id}`}
-                                label={'수정'}
+                            <Button type="button" label={'수정'}
+                                onclick={()=>{goModifyPage(detail.id as number)}}
                             />
-                            {/*<button type="button" className="btn btn-default"*/}
-                            {/*    onClick={()=>{goModifyPage(detail.id as number)}}*/}
-                            {/*>수정</button>*/}
                         </div>
                             <div className="center">
 
                             </div>
                         <div className="right">
                             <Button
-                                href={'/board'}
-                                label={'목록'}
+                                type="button" label={'목록'}
+                                onclick={()=>{goBackPage()}}
                             />
                         </div>
                     </div>
