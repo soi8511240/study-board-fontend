@@ -1,8 +1,12 @@
 import {apiInstance} from "@/shared";
+import {type Categories} from "./type";
 
-export const getCategoriesApi = async (query={})=>{
-    return apiInstance.get('/codes/categoryAll', {params:query})
-        .then(({data}) => {
-            return data.category;
-        }).finally(() => {});
+export const boardCategoryApi = async ():Promise<Categories[]>=>{
+    return apiInstance.get('/codes/categoryAll', {
+        // adapter: "fetch",
+        // fetchOptions: { cache: "force-cache" }
+    }).then(({data}) => {
+        console.log('category:', data)
+        return data.category;
+    }).finally(() => {});
 }
