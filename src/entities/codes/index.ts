@@ -1,7 +1,5 @@
 export {type Categories} from './api/type';
 
-export {getCategoriesApi} from './api/api';
-
-export {useCategory} from './hooks/useCategory';
+export {boardCategoryApi} from './api/api';
 
 export {default as codeReducer, fetchCategories} from './slicer/codesSlicer';

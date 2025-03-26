@@ -1,15 +1,17 @@
 'use client'
 
-import React from 'react';
+import React, {use} from 'react';
 import {useListsFilter} from "@/widgets/board";
-import type {BoardListsFilter} from "@/entities/board";
+import {type BoardListsFilter} from "@/entities/board";
 import {useCustomSearchParams} from "@/shared/lib";
+import {type Categories} from "@/entities/codes";
 
 type Props = {
-    filterInit: BoardListsFilter
+    filterInit: BoardListsFilter,
+    categoryPromise: Promise<Categories[]>
 }
 
-export function FilterUi ({filterInit}: Props) {
+export function FilterUi ({filterInit, categoryPromise}: Props) {
 
     // onSubmit 에서 처리할 파라미터 셋팅함수 가져옴.
     const {setSearchParams} = useCustomSearchParams();
@@ -21,6 +23,8 @@ export function FilterUi ({filterInit}: Props) {
             currentPage: '1'
         })
     }
+
+    const category = use(categoryPromise);
 
     /**
      * 필터 초기값과 onSubmit 함수를 파라미터로 전달하고,
@@ -37,6 +41,9 @@ export function FilterUi ({filterInit}: Props) {
             </div>
             <select className="select" name="categoryId" id="categorySelect" value={filterValue.categoryId} onChange={handleFilterValueChange}>
                 <option value="">전체</option>
+                {category && category.map(({id,name})=> (
+                    <option key={id} value={id}>{name}</option>
+                ))}
             </select>
             <input type="text" id="keyword" name="keyword" placeholder="검색어를 입력해 주세요. (제목 + 작성자 + 내용)"
                    value={filterValue.keyword}

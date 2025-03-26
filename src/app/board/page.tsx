@@ -3,6 +3,7 @@
 import React, {Suspense} from "react";
 import { FilterUi, ListUi, PagingUi } from '@/widgets/board';
 import { boardListsApi, type BoardListsFilter } from "@/entities/board";
+import { boardCategoryApi } from "@/entities/codes";
 
 const filterInit:BoardListsFilter = {
     categoryId: '',
@@ -24,13 +25,16 @@ export default async function Page({ searchParams }:Props) {
         ...param
     };
 
-    // 보드가져오는 API 호출
     const boardListsPromise = boardListsApi(filter);
+    const boardCategoriesPromise = boardCategoryApi();
 
     return (
         <>
             <Suspense fallback={<div>Loading...</div>}>
-                <FilterUi filterInit={filter}/>
+                <FilterUi
+                    categoryPromise={boardCategoriesPromise}
+                    filterInit={filter}
+                />
                 <ListUi responsePromise={boardListsPromise}/>
                 <PagingUi
                     responsePromise={boardListsPromise}
