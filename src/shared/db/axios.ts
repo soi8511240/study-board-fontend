@@ -9,7 +9,7 @@ console.log('API_URL', API_URL)
 const apiInstance = axios.create({
     baseURL : API_URL,
     headers: AXIOS_HEADERS,
-    withCredentials: true,
+    // withCredentials: true,
 });
 //
 // apiInstance.interceptors.request.use(function (config) {

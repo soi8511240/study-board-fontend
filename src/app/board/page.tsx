@@ -4,6 +4,7 @@ import React, {Suspense} from "react";
 import { FilterUi, ListUi, PagingUi } from '@/widgets/board';
 import { boardListsApi, type BoardListsFilter } from "@/entities/board";
 import { boardCategoryApi } from "@/entities/codes";
+import Loading from "@/app/Loading";
 
 const filterInit:BoardListsFilter = {
     categoryId: '',
@@ -30,7 +31,7 @@ export default async function Page({ searchParams }:Props) {
 
     return (
         <>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Loading />}>
                 <FilterUi
                     categoryPromise={boardCategoriesPromise}
                     filterInit={filter}

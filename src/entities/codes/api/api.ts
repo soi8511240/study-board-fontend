@@ -3,10 +3,10 @@ import {type Categories} from "./type";
 
 export const boardCategoryApi = async ():Promise<Categories[]>=>{
     return apiInstance.get('/codes/categoryAll', {
-        // adapter: "fetch",
+        adapter: "fetch",
+        fetchOptions: { cache: "reload" },
         // fetchOptions: { cache: "force-cache" }
     }).then(({data}) => {
-        console.log('category:', data)
-        return data.category;
+        return data.data.category;
     }).finally(() => {});
 }

@@ -5,35 +5,41 @@ import React, {use, useActionState} from 'react';
 import css from './BoardWriteUi.module.css';
 import {Categories} from "@/entities/codes";
 import {boardWriteApi} from "@/features/board/write";
-import {useRouter} from "next/navigation";
-import {useFormStatus} from "react-dom";
 
 type Props = {
-    categoryPromise: Promise<Categories[]>
+    categoryPromise:Promise<Categories[]>;
 }
 
-export function BoardWriteUi ({categoryPromise}: Props){
+export const BoardWriteUi = ({categoryPromise}:Props)=>{
 
     const categories = use(categoryPromise);
 
-    // const submitAction = async (writeData:FormData) => {
-    //     const nextUrl = '/board/detail/';
-    //     await boardWriteApi(writeData, nextUrl);
-    //     // console.log('################# id', id)
+    // const submitAction = async (writeData:BoardDto) => {
+    //     startTransition(async () => {
+    //         // const {error} = await boardWriteApi(writeData);
+    //         // if (error) {
+    //         //     setError(error);
+    //         // } else {
+    //         //     setName('');
+    //         // }
+    //         const {} = await boardWriteApi(writeData);
+    //     })
     // }
 
-    const router = useRouter();
-    const goListPage = () => {
-        router.push('/board');
+    // const {writeData, handleValueChange, handleSubmit} = useBoardWrite(onSubmit);
+    async function boardWrite(prevState, formData) {
+        "use server";
+        try {
+            return await boardWriteApi(formData);
+        } catch (err) {
+            return err.toString();
+        }
     }
-    // const [state, submitAction] = useFormState(boardWriteApi, {error: null});
-
-    // const [state, submitAction] = useActionState(boardWriteApi, formData);
-    // const {pending} = useFormStatus();
+    
+    const [message, submitAction] = useActionState(boardWriteApi, null);
     return (
-            <form action={boardWriteApi}>
-                {/*{state?.id && <p>id: {state.id}</p>}*/}
-                {/*{pending && <p>Loading...</p>}*/}
+            <form action={submitAction}>
+                {!!message && <p>{message}</p>}
                 <table className="table-horizontal">
                     <colgroup>
                         <col className={css.w15p}/>
@@ -97,13 +103,11 @@ export function BoardWriteUi ({categoryPromise}: Props){
                 <div className="btns-foot">
                     <div className="left"></div>
                     <div className="center">
-                        <button
-                            type="submit"
-                            className="btn btn-default primary"
+                        <button type="submit" className="btn btn-default primary"
                         >저장</button>
-                        <button type="button" className="btn btn-default"
-                                onClick={goListPage}
-                        >취소</button>
+                        {/*<button type="button" className="btn btn-default"*/}
+                        {/*        onClick={}*/}
+                        {/*>취소</button>*/}
                     </div>
                     <div className="right"></div>
                 </div>

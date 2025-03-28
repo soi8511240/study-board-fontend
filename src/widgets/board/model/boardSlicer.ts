@@ -20,7 +20,7 @@ const initialState:BoardListsResponse = {
         keyword: "",
         fromDt: "",
         toDt: "",
-        currentPage : 1,
+        currentPage : '1',
     }
 };
 

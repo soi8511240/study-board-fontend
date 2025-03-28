@@ -1,13 +1,17 @@
-import React from 'react';
-import {boardWriteApi, BoardWriteUi} from '@/features/board/write/';
-import {boardCategoryApi} from "@/entities/codes";
+'use server'
 
-export default function Page() {
+import React, {Suspense} from 'react';
+import {BoardWriteUi} from '@/features/board/write/';
+import {boardCategoryApi} from "@/entities/codes";
+import Loading from "@/app/Loading";
+
+export default async function Page() {
     const boardCategoriesPromise = boardCategoryApi();
     return (
-        <BoardWriteUi
-            submitAction={boardWriteApi}
-            categoryPromise={boardCategoriesPromise}
-        />
+        <Suspense fallback={<Loading />}>
+            <BoardWriteUi
+                categoryPromise={boardCategoriesPromise}
+            />
+        </Suspense>
     )
 }
