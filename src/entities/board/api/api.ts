@@ -5,7 +5,7 @@ const boardListsApi = async (query={}):Promise<BoardListsResponse>=>{
     return apiInstance.get('/board/lists', {params:query})
         .then(({data}) => {
             return data.data;
-        }).finally(() => {});
+        }).finally(() => {})
 }
 
 const boardDetailApi = async (query={}):Promise<BoardDto>=>{

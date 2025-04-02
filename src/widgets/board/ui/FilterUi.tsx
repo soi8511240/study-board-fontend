@@ -30,7 +30,8 @@ export function FilterUi ({filterInit, categoryPromise}: Props) {
      * 필터 초기값과 onSubmit 함수를 파라미터로 전달하고,
      * 화면을 구성하는데 필요한 이벤트 핸들러와 필터 값을 가져옴.
      */
-    const {filterValue, handleFilterValueChange, handleSubmit} = useListsFilter(filterInit, onSubmit);
+    const {filterValue, handleFilterValueChange, handleSubmit} =
+        useListsFilter(filterInit, onSubmit);
 
      return (
         <div className="searchbar">

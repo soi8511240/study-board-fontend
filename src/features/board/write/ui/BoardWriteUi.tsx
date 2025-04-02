@@ -1,12 +1,12 @@
 'use client'
 
-import React, {use, useActionState} from 'react';
+import React, {use} from 'react';
 
 import css from './BoardWriteUi.module.css';
 import {Categories} from "@/entities/codes";
 import {boardWriteApi} from "@/features/board/write";
 import {useRouter} from "next/navigation";
-import {useFormStatus} from "react-dom";
+import {InputFile} from "@/shared/inputs";
 
 type Props = {
     categoryPromise: Promise<Categories[]>
@@ -84,9 +84,12 @@ export function BoardWriteUi ({categoryPromise}: Props){
                         <th>File</th>
                         <td colSpan={3}>
                             {/*Todo 배열로*/}
-                            <input type="file" className="file" name="attachFile1" accept="image/*,application/pdf"/>
-                            <input type="file" className="file" name="attachFile2" accept="image/*,application/pdf"/>
-                            <input type="file" className="file" name="attachFile3" accept="image/*,application/pdf"/>
+                            <InputFile name="attachFile1" />
+                            <InputFile name="attachFile2" />
+                            <InputFile name="attachFile3" />
+                            {/*<input type="file" className="file" name="attachFile1" accept="image/*,application/pdf"/>*/}
+                            {/*<input type="file" className="file" name="attachFile2" accept="image/*,application/pdf"/>*/}
+                            {/*<input type="file" className="file" name="attachFile3" accept="image/*,application/pdf"/>*/}
                             {/*<InputFile name={'attachFile1'} onChange={handleValueChange} multiple={true}/>*/}
                             {/*<InputFile name={'attachFile2'} onChange={handleValueChange}/>*/}
                             {/*<InputFile name={'attachFile3'} onChange={handleValueChange}/>*/}

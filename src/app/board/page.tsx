@@ -28,6 +28,10 @@ export default async function Page({ searchParams }:Props) {
 
     const boardListsPromise = boardListsApi(filter);
     const boardCategoriesPromise = boardCategoryApi();
+    /*
+    Todo:
+    * */
+    // const pagingNeedsData= boardListsPromise.then(res => res.totalCnt);
 
     return (
         <>
@@ -37,6 +41,7 @@ export default async function Page({ searchParams }:Props) {
                     filterInit={filter}
                 />
                 <ListUi responsePromise={boardListsPromise}/>
+                {/*Todo pagingUi 는 listUI로 이동하며 전체데이터말고 필요한데이터만 찝어서 props로 전달시킴.*/}
                 <PagingUi
                     responsePromise={boardListsPromise}
                     filterInit={filter}

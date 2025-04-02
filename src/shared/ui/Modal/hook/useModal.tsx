@@ -1,33 +1,60 @@
 'use client';
 
-import {useEffect} from "react";
+import { useState, ReactNode, useEffect } from 'react';
 
-import {useAppDispatch, useAppSelector} from "@/app/store/hooks";
-import {type ModalState, setModal, initialModal} from "@/shared/ui/";
+// 전역 상태 객체
+type ModalState = {
+  isOpen: boolean;
+  children: ReactNode | null;
+};
 
-export function useModal() {
+let globalState: ModalState = {
+  isOpen: false,
+  children: null,
+};
 
-    const { type, open, title, message, component }:ModalState
-        = useAppSelector((state) => state.modal);
-    const dispatch = useAppDispatch();
+const listeners: Set<(state: ModalState) => void> = new Set();
 
-    const callModal = (params:ModalState)=>{
-        const newState = {
-            ...params,
-            open: true,
-        }
-        console.log('################## newState', params);
-        dispatch(setModal(newState));
-    }
+// 상태 업데이트 함수
+const updateState = (newState: Partial<ModalState>) => {
+  globalState = { ...globalState, ...newState };
+  listeners.forEach((listener) => listener(globalState));
+};
 
-    const closeModal = ()=>{
-        console.log('closeModal');
-        dispatch(initialModal());
-    }
+export const useModal = () => {
+  const [state, setState] = useState<ModalState>(globalState);
 
-    // useEffect(()=>{
-    //     console.log('################## useEffect', open);
-    // },[open]);
+  useEffect(() => {
+    // 컴포넌트마다 리스너 등록
+    const listener = (newState: ModalState) => {
+      setState(newState);
+    };
+    listeners.add(listener);
 
-    return {type, open, title, message, component, callModal, closeModal};
-}
+    // 언마운트시 리스너 제거
+    return () => {
+      listeners.delete(listener);
+    };
+  }, []);
+
+  const openModal = (content: ReactNode) => {
+    updateState({
+      isOpen: true,
+      children: content,
+    });
+  };
+
+  const closeModal = () => {
+    updateState({
+      isOpen: false,
+      children: null,
+    });
+  };
+
+  return {
+    isOpen: state.isOpen,
+    children: state.children,
+    openModal,
+    closeModal,
+  };
+};

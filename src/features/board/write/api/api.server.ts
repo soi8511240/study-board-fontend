@@ -1,6 +1,6 @@
 'use server';
 
-import _ from 'lodash';
+// import _ from 'lodash';
 import {BoardDto} from '@/entities/board';
 import {apiInstance} from '@/shared/db/axios';
 import {redirect} from "next/navigation";
@@ -11,8 +11,8 @@ enum ResponseType {
     ERROR = 'error',
 }
 type Response = {
-    data:Object,
-    success: ResponseType,
+    data: object,
+    state: ResponseType,
     message: string,
 }
 
@@ -22,7 +22,7 @@ export async function boardWriteApi(formData:FormData) {
             'Content-Type': 'multipart/form-data',
         },
     })
-    if (_.isEqual('success', (response as Response).success)) {
+    if ('success' === response.data.state ) {
         const id = response.data.data;
         console.log('########## data', response.data.data, `${id}`)
         redirect(`/board/${id}`);
@@ -41,11 +41,19 @@ export async function boardWriteApi(formData:FormData) {
 
 }
 
-export async function boardUpdateApi(query:Partial<BoardDto>={}) {
-    // await apiInstance.post('/board/update', convertFormData(query))
-    //     .then(({data}) => {
-    //         return data;
-    //     }).finally(() => {});
+export async function boardUpdateApi(formData:FormData) {
+    const response =  await apiInstance.post('/board/update', formData, {
+        headers: {
+            'Content-Type': 'multipart/form-data',
+        },
+    });
+    // validation //
+    if ('success' === response.data.state) {
+        const id = response.data.data;
+        console.log('########## data', response.data.data, `${id}`)
+        redirect(`/board/${id}`);
+        // return id;
+    }
 }
 
 const convertFormData = <T>(query:Partial<T>)=>{

@@ -19,6 +19,7 @@ export const useCustomSearchParams = () => {
     }
 
     const setSearchParams = (newParams: NewParamsType) => {
+        /* Todo: 화면이동은 하지말자. or 의미가 명확히 이름을 정하자. */
         return router.push(`${pathname}?${setNewParams(newParams)}`)
     }
 

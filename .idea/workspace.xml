@@ -4,24 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f43a5b81-db90-4413-a007-7c4a64e35093" name="Changes" comment="파일첨부작업중">
-      <change afterPath="$PROJECT_DIR$/src/shared/lib/hooks/useCustomSearchParams.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/lib/index.ts" afterDir="false" />
+    <list default="true" id="f43a5b81-db90-4413-a007-7c4a64e35093" name="Changes" comment="클라이언트에서 서버 api 호출 과정 작업중.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Modal.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/board/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/board/[id]/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/board/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/board/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/css/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/css/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/portal/ModalPortal.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/board/api/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/board/api/api.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/board/api/type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/board/api/type.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/board/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/board/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/board/hooks/useListsFetch.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/board/hooks/useListsFetch.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/board/hooks/useListsFilter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/board/hooks/useListsFilter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/board/model/_filterAtom.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/board/model/_filterAtom.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/board/model/boardSlicer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/board/model/boardSlicer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/codes/api/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/codes/api/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/board/write/api/api.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/board/write/api/api.server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/board/write/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/board/write/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/board/write/ui/BoardModifyUi.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/board/write/ui/BoardModifyUi.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/board/write/ui/BoardWriteUi.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/board/write/ui/BoardWriteUi.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/inputs/file/InputFile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/inputs/file/InputFile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/lib/hooks/useCustomSearchParams.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/lib/hooks/useCustomSearchParams.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/Modal/hook/useModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ui/Modal/hook/useModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ui/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/widgets/board/ui/DetailUi.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/board/ui/DetailUi.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/widgets/board/ui/FilterUi.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/board/ui/FilterUi.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/board/ui/ListUi.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/board/ui/ListUi.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/board/ui/PagingUi.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/board/ui/PagingUi.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +35,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -38,15 +42,12 @@
     &quot;assignee&quot;: &quot;soi8511240&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/soi8511240/study-board-fontend.git",
-    "accountId": "9c95dac3-9798-46fa-8ece-da38bc7cacd3"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/soi8511240/study-board-fontend.git&quot;,
+    &quot;accountId&quot;: &quot;9ccb65a1-2cf5-4bfb-bc85-389234207a92&quot;
   }
-}]]></component>
-  <component name="PackageJsonUpdateNotifier">
-    <dismissed value="$PROJECT_DIR$/package.json" />
-  </component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 8
@@ -56,32 +57,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/jw/IdeaProjects/sts-react/frontend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.dev.executor": "Run",
-    "settings.editor.selected.configurable": "com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable",
-    "ts.external.directory.path": "/Users/jw/IdeaProjects/sts-react/frontend/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/project/board-sts-react/backend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\project\\board-sts-react\\frontend\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\project\board-sts-react\frontend\src\features\board\write\ui" />
       <recent name="C:\project\board-sts-react\frontend\src\features\board\write\hooks" />
       <recent name="C:\project\board-sts-react\frontend\src\features\board\modify" />
       <recent name="C:\project\board-sts-react\frontend\src\features\board\modify\ui" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\project\board-sts-react\frontend\src\app" />
       <recent name="C:\project\board-sts-react\frontend\src\features\board\modify" />
     </key>
   </component>
@@ -116,8 +119,28 @@
       <workItem from="1742365185697" duration="792000" />
       <workItem from="1742366129735" duration="238000" />
       <workItem from="1742366603637" duration="13204000" />
-      <workItem from="1742899108526" duration="13584000" />
+      <workItem from="1743045768486" duration="4030000" />
+      <workItem from="1743128358705" duration="15008000" />
+      <workItem from="1743392413514" duration="15228000" />
+      <workItem from="1743567196958" duration="4369000" />
     </task>
+    <task id="LOCAL-00001" summary="모달 머터리얼/리액터 라이브러리 제거.&#10;리스트 서버컴포넌트로 변경중">
+      <option name="closed" value="true" />
+      <created>1742885629144</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1742885629144</updated>
+    </task>
+    <task id="LOCAL-00002" summary="클라이언트에서 서버 api 호출 과정 작업중.">
+      <option name="closed" value="true" />
+      <created>1743149181522</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1743149181522</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -125,6 +148,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="파일첨부작업중" />
-    <option name="LAST_COMMIT_MESSAGE" value="파일첨부작업중" />
+    <MESSAGE value="모달 머터리얼/리액터 라이브러리 제거.&#10;리스트 서버컴포넌트로 변경중" />
+    <MESSAGE value="클라이언트에서 서버 api 호출 과정 작업중." />
+    <option name="LAST_COMMIT_MESSAGE" value="클라이언트에서 서버 api 호출 과정 작업중." />
   </component>
 </project>
