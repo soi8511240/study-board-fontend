@@ -21,21 +21,6 @@ export function useBoardWrite(submitAction:(param:BoardDto)=>void, initValues:Bo
     const initData = {...initialWriteData, initValues} ;
     const [writeData, setWriteData] = useState<BoardDto>(initData);
 
-    // const fetchData = useCallback(():Promise<BoardDto> => {
-    //         try {
-    //             if (writeData.id) {
-    //                 // update api 함수실행
-    //                 // return boardWriteApi(writeData);
-    //             }
-    //             return boardWriteApi(writeData);
-    //         } catch (error) {
-    //             console.error('Failed to fetch list:', error);
-    //             return Promise.reject(error);
-    //         }
-    //     }
-    //     ,[writeData]
-    // )
-
     /**
      * 필터 입력 필드의 변경 이벤트 처리 함수
      */

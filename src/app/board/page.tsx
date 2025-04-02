@@ -14,16 +14,15 @@ const filterInit:BoardListsFilter = {
     currentPage: '1'
 }
 
-type Props = {
-    searchParams: BoardListsFilter
+interface PageProps {
+    searchParams: BoardListsFilter;
 }
 
-export default async function Page({ searchParams }:Props) {
+export default async function Page({ searchParams }:PageProps) {
     // 필터 초기값 설정 중
-    const param = await searchParams;
     const filter = {
         ...filterInit,
-        ...param
+        ...searchParams
     };
 
     const boardListsPromise = boardListsApi(filter);

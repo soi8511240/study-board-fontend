@@ -1,20 +1,20 @@
 'use server';
 
 // import _ from 'lodash';
-import {BoardDto} from '@/entities/board';
+// import {BoardDto} from '@/entities/board';
 import {apiInstance} from '@/shared/db/axios';
 import {redirect} from "next/navigation";
-
-enum ResponseType {
-    SUCCESS = 'success',
-    FAIL = 'fail',
-    ERROR = 'error',
-}
-type Response = {
-    data: object,
-    state: ResponseType,
-    message: string,
-}
+//
+// enum ResponseType {
+//     SUCCESS = 'success',
+//     FAIL = 'fail',
+//     ERROR = 'error',
+// }
+// type Response = {
+//     data: object,
+//     state: ResponseType,
+//     message: string,
+// }
 
 export async function boardWriteApi(formData:FormData) {
     const response = await apiInstance.post('/board/insert', formData,{

@@ -3,16 +3,16 @@
 import React, { Suspense } from 'react';
 import { DetailUi } from '@/widgets/board';
 import { boardDetailApi } from '@/entities/board';
-type Params = {
-  params: {
-    id: string;
-  };
-};
 
-export default async function Page({ params }: Params) {
-  const { id } = await params;
+interface PageProps {
+    params: {
+        id: string;
+    };
+}
 
-  const boardDetailPromise = boardDetailApi({ id });
+export default async function Page({ params }: PageProps) {
+    const id = params.id;
+  const boardDetailPromise = boardDetailApi({id});
 
   return (
     <Suspense fallback={<div>Loading...</div>}>

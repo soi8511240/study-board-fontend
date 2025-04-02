@@ -8,7 +8,6 @@ export default function page() {
           <div>
             <Link href='/board'>게시판</Link>
           </div>
-
       </>
   );
 }

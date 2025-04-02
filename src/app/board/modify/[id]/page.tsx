@@ -10,7 +10,7 @@ type Params = {
 }
 
 export default async function Page({ params }:Params) {
-    const { id } = await params;
+    const { id } = params;
     const detailPromise = boardDetailApi({id});
     const boardCategoriesPromise = boardCategoryApi();
 
