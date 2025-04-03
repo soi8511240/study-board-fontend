@@ -2,17 +2,18 @@
 
 import React, {use} from 'react';
 
-import {BoardDto, type BoardListsResponse} from '@/entities/board';
+import {BoardDto, type BoardListsFilter, type BoardListsResponse} from '@/entities/board';
 
 import Link from "next/link";
-// import {useListsFetch} from "@/widgets/board";
 
 type Props = {
-    responsePromise:Promise<BoardListsResponse>
+    responsePromise:Promise<BoardListsResponse>,
+    filterInit: BoardListsFilter,
 }
 
-export function ListUi({responsePromise}:Props){
+export function ListUi({responsePromise, filterInit}:Props){
     const response = use(responsePromise);
+    const filterInit = use(filterInit);
     const {boardLists, totalCnt} = response;
 
     // const {boardLists, totalCnt} = result;

@@ -9,6 +9,8 @@ export const AXIOS_HEADERS:Record<string,string> = {
     'Content-Type': 'application/json',
 };
 
+export const FETCH_COUNT = 10;
+
 // const CONSTANTS = {
 //     BASE_URL : 'http://localhost:8080',
 //     BASE_DOMAIN : 'http://localhost:3000',
