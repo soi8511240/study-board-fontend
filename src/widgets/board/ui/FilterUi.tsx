@@ -1,37 +1,20 @@
 'use client'
 
-import React, {use} from 'react';
+import React from 'react';
 import {useListsFilter} from "@/widgets/board";
 import {type BoardListsFilter} from "@/entities/board";
-import {useCustomSearchParams} from "@/shared/lib";
 import {type Categories} from "@/entities/codes";
 
 type Props = {
-    filterInit: BoardListsFilter,
-    categoryPromise: Promise<Categories[]>
+    filter: BoardListsFilter,
+    categories: Categories[],
+    onFilterChange: (param:BoardListsFilter)=>void;
 }
 
-export function FilterUi ({filterInit, categoryPromise}: Props) {
+export function FilterUi ({filter, categories, onFilterChange}: Props) {
 
-    // onSubmit 에서 처리할 파라미터 셋팅함수 가져옴.
-    const {setSearchParams} = useCustomSearchParams();
-
-    // onSubmit 이벤트 핸들러 : 필터값을 searchParam에 반영함
-    const onSubmit = (param:BoardListsFilter) => {
-        setSearchParams({
-            ...param,
-            currentPage: '1'
-        })
-    }
-
-    const category = use(categoryPromise);
-
-    /**
-     * 필터 초기값과 onSubmit 함수를 파라미터로 전달하고,
-     * 화면을 구성하는데 필요한 이벤트 핸들러와 필터 값을 가져옴.
-     */
     const {filterValue, handleFilterValueChange, handleSubmit} =
-        useListsFilter(filterInit, onSubmit);
+        useListsFilter(filter, onFilterChange);
 
      return (
         <div className="searchbar">
@@ -42,7 +25,7 @@ export function FilterUi ({filterInit, categoryPromise}: Props) {
             </div>
             <select className="select" name="categoryId" id="categorySelect" value={filterValue.categoryId} onChange={handleFilterValueChange}>
                 <option value="">전체</option>
-                {category && category.map(({id,name})=> (
+                {categories && categories.map(({id,name})=> (
                     <option key={id} value={id}>{name}</option>
                 ))}
             </select>

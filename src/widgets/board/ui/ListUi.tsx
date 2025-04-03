@@ -1,31 +1,17 @@
 'use client'
 
-import React, {use} from 'react';
+import React from 'react';
 
-import {BoardDto, type BoardListsFilter, type BoardListsResponse} from '@/entities/board';
+import {type BoardDto} from '@/entities/board';
 
 import Link from "next/link";
 
 type Props = {
-    responsePromise:Promise<BoardListsResponse>,
-    filterInit: BoardListsFilter,
+    boardLists:BoardDto[] | undefined,
+    totalCnt: number,
 }
 
-export function ListUi({responsePromise, filterInit}:Props){
-    const response = use(responsePromise);
-    const filterInit = use(filterInit);
-    const {boardLists, totalCnt} = response;
-
-    // const {boardLists, totalCnt} = result;
-    // return (
-    //     <ul>
-    //         {data.map((item:boardDTO) => (
-    //             <li key={item.id}>{item.name}</li>
-    //         ))}
-    //     </ul>
-    // );
-
-
+export function ListUi({boardLists, totalCnt}:Props){
     return (
         <>
             <div className="table-top">총 {totalCnt}건</div>
