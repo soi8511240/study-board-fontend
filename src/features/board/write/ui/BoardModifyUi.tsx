@@ -8,6 +8,7 @@ import {type BoardDto} from "@/entities/board";
 import {type Categories} from "@/entities/codes";
 import {boardWriteApi} from '@/features/board/write';
 import {useRouter} from "next/navigation";
+import {FormFileUploader} from "@/shared/inputs";
 
 type Props = {
     detail:BoardDto;
@@ -44,7 +45,7 @@ interface UpdateRequestDTO {
 export const BoardModifyUi = ({detail, categories}:Props)=>{
     const {id} = detail;
 
-    const { register, handleSubmit } = useForm<UpdateRequestDTO>({
+    const { register, handleSubmit, control } = useForm<UpdateRequestDTO>({
             defaultValues: {
                 ...detail,
                 id: id!.toString(),
@@ -75,6 +76,7 @@ export const BoardModifyUi = ({detail, categories}:Props)=>{
         const formData = new FormData();
 
         formData.append('id', id!.toString());
+        formData.append('removeAttachFiles', JSON.stringify(removeAttachFiles));
 
         // 일반 텍스트 필드 추가
         Object.entries(data).forEach(([key, value]) => {
@@ -160,20 +162,27 @@ export const BoardModifyUi = ({detail, categories}:Props)=>{
                 <tr>
                     <th>AttachFiles</th>
                     <td colSpan={3}>
-                        {detail.attachYn === 'Y' && (
-                            <ul className="attach-list">
-                                {detailFiles &&
-                                    detailFiles.map(({storedFileName, originalFileName, orderBy}, index) => {
-                                        return (
-                                            <li key={index}>
-                                                <a href={'/api/boards/download/' + (storedFileName as string)}>{originalFileName}</a>
-                                                <button type={'button'} className="ico remove" onClick={()=>{handleAttachRemove(storedFileName!,orderBy!)}}>삭제</button>
-                                            </li>
-                                        );
-                                    })
-                                }
-                            </ul>
-                        )}
+                        <ul className="attach-list">
+                            {detailFiles &&
+                                detailFiles.map(({storedFileName, originalFileName, orderBy}, index) => {
+                                    return (
+                                        <li key={index}>
+                                            <a href={'/api/boards/download/' + (storedFileName as string)}>{originalFileName}</a>
+                                            <button type={'button'} className="ico remove" onClick={()=>{handleAttachRemove(storedFileName!,orderBy!)}}>삭제</button>
+                                        </li>
+                                    );
+                                })
+                            }
+                            {detailFiles && detailFiles.length < 3 && (
+                                    <FormFileUploader
+                                        name="attachFiles"
+                                        control={control}
+                                        maxFiles={3 - detailFiles.length}
+                                        label="첨부 파일"
+                                    />
+                                )
+                            }
+                        </ul>
                     </td>
                 </tr>
                 </tbody>
