@@ -3,8 +3,12 @@
 import React, {Suspense} from "react";
 import {boardListsApi, type BoardListsFilter} from "@/entities/board";
 import {ListsView} from "@/features/board/ListsView";
-import {ErrorBoundary} from "next/dist/client/components/error-boundary";
 import {boardCategoryApi} from "@/entities/codes";
+
+
+interface PageProps {
+    searchParams: Promise<BoardListsFilter>;
+}
 
 const filterInit:BoardListsFilter = {
     categoryId: '',
@@ -14,17 +18,13 @@ const filterInit:BoardListsFilter = {
     currentPage: '1'
 }
 
-interface PageProps {
-    searchParams: BoardListsFilter;
-}
-
 export default async function Page({ searchParams }:PageProps) {
-    // 필터 초기값 설정 중
-    const filter = {
+    const resolvedSearchParams = await searchParams;
+
+    const filter  = {
         ...filterInit,
-        ...await searchParams
-    };
-    // const filter = Object.assign({}, filterInit, searchParams);
+        ...resolvedSearchParams
+    }
 
     const boardLists = await boardListsApi(filter);
     const boardCategories = await boardCategoryApi();

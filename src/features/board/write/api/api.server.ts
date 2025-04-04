@@ -1,33 +1,23 @@
 'use server';
 
 // import _ from 'lodash';
-// import {BoardDto} from '@/entities/board';
 import {apiInstance} from '@/shared/db/axios';
 import {redirect} from "next/navigation";
-//
-// enum ResponseType {
-//     SUCCESS = 'success',
-//     FAIL = 'fail',
-//     ERROR = 'error',
-// }
-// type Response = {
-//     data: object,
-//     state: ResponseType,
-//     message: string,
-// }
 
 export async function boardWriteApi(formData:FormData) {
+    console.log('########## formData', formData)
     const response = await apiInstance.post('/board/insert', formData,{
         headers: {
             'Content-Type': 'multipart/form-data',
         },
     })
-    if ('success' === response.data.state ) {
-        const id = response.data.data;
-        console.log('########## data', response.data.data, `${id}`)
-        redirect(`/board/${id}`);
-        // return id;
-    }
+    return response.data;
+    // if ('success' === response.data.state ) {
+    //     const id = response.data.data;
+    //     console.log('########## data', response.data.data, `${id}`)
+    //     redirect(`/board/${id}`);
+    //     // return id;
+    // }
     // .then((data) => {
     //     const id =data.data.data;
     //     console.log('########## data', data.data.data, `${id}`)

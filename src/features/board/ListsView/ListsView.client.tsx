@@ -1,6 +1,6 @@
 'use client'
 
-import React, {useEffect} from 'react';
+import React from 'react';
 import { FilterUi } from '@/widgets/board/ui/FilterUi';
 import { ListUi } from '@/widgets/board/ui/ListUi';
 import { PagingUi } from '@/widgets/board/ui/PagingUi';
@@ -17,11 +17,7 @@ type Props = {
 export function ListsView({ initialData, initialFilter, categories }: Props) {
     const {navigateWithParams} = useCustomSearchParams();
 
-    useEffect(() => {
-        console.log('initialData', initialData.totalCnt);
-    },[initialData])
-
-    // onSubmit 이벤트 핸들러 : 필터값을 searchParam에 반영함
+    // filter change event
     const handleFilterChange = (param:BoardListsFilter) => {
         navigateWithParams({
             ...param,
@@ -29,6 +25,7 @@ export function ListsView({ initialData, initialFilter, categories }: Props) {
         })
     }
 
+    // paging click event
     const handlePageChange = (page:number) => {
         navigateWithParams({
             ...initialFilter,
@@ -37,7 +34,7 @@ export function ListsView({ initialData, initialFilter, categories }: Props) {
     }
 
     return (
-        <div className="board-data-view">
+        <>
             <FilterUi
                 filter={initialFilter}
                 categories={categories}
@@ -54,6 +51,6 @@ export function ListsView({ initialData, initialFilter, categories }: Props) {
                 totalCnt={initialData.totalCnt}
                 onPageChange={handlePageChange}
             />
-        </div>
+        </>
     );
 }

@@ -6,11 +6,11 @@ import {boardCategoryApi} from "@/entities/codes";
 import Loading from "@/app/Loading";
 
 export default async function Page() {
-    const boardCategoriesPromise = boardCategoryApi();
+    const boardCategoriesPromise = await boardCategoryApi();
     return (
         <Suspense fallback={<Loading />}>
             <BoardWriteUi
-                categoryPromise={boardCategoriesPromise}
+                categories={boardCategoriesPromise}
             />
         </Suspense>
     )

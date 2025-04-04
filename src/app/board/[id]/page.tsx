@@ -5,13 +5,13 @@ import { DetailUi } from '@/widgets/board';
 import { boardDetailApi } from '@/entities/board';
 
 interface PageProps {
-    params: {
+    params: Promise<{
         id: string;
-    };
+    }>
 }
 
 export default async function Page({ params }: PageProps) {
-    const id = params.id;
+  const {id} = await params;
   const boardDetailPromise = boardDetailApi({id});
 
   return (

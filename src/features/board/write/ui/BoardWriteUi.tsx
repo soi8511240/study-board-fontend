@@ -1,39 +1,70 @@
 'use client'
 
 import React, {use} from 'react';
+import { useForm, SubmitHandler } from "react-hook-form";
 
 import css from './BoardWriteUi.module.css';
 import {Categories} from "@/entities/codes";
 import {boardWriteApi} from "@/features/board/write";
 import {useRouter} from "next/navigation";
-import {InputFile} from "@/shared/inputs";
+import {FormFileUploader} from "@/shared/inputs/";
 
 type Props = {
-    categoryPromise: Promise<Categories[]>
+    categories: Categories[]
 }
 
-export function BoardWriteUi ({categoryPromise}: Props){
+interface InsertRequestDTO {
+    title: string;
+    writer: string;
+    password?: string;
+    rePassword?: string;
+    content?: string;
+    categoryCode?: string;
+    createdAt?: string;
+    updatedAt?: string;
+    viewCnt?: number;
+    attachYn?: string;
+    attachFiles?: File[] | null;
+}
 
-    const categories = use(categoryPromise);
+export function BoardWriteUi ({categories}: Props){
 
-    // const submitAction = async (writeData:FormData) => {
-    //     const nextUrl = '/board/detail/';
-    //     await boardWriteApi(writeData, nextUrl);
-    //     // console.log('################# id', id)
-    // }
+    const { register, handleSubmit, control } = useForm<InsertRequestDTO>()
+
+    const onSubmit: SubmitHandler<InsertRequestDTO> = async (data:InsertRequestDTO) => {
+        const formData = new FormData();
+
+        // 일반 텍스트 필드 추가
+        Object.entries(data).forEach(([key, value]) => {
+            if (key !== 'attachFiles') {
+                formData.append(key, value as string);
+            }
+        });
+
+        // 파일 첨부 처리
+        if (data.attachFiles && data.attachFiles.length > 0) {
+            data.attachFiles.forEach((file) => {
+                formData.append('attachFiles', file);
+            });
+        }
+
+        // API 호출
+        // console.log('########################### formData', formData, data)
+        return boardWriteApi(formData).then(res=>{
+            goDetailPage(res.data as string);
+        });
+    };
+
 
     const router = useRouter();
     const goListPage = () => {
         router.push('/board');
     }
-    // const [state, submitAction] = useFormState(boardWriteApi, {error: null});
-
-    // const [state, submitAction] = useActionState(boardWriteApi, formData);
-    // const {pending} = useFormStatus();
+    const goDetailPage = (id:string) => {
+        router.push(`/board/${id}`);
+    }
     return (
-            <form action={boardWriteApi}>
-                {/*{state?.id && <p>id: {state.id}</p>}*/}
-                {/*{pending && <p>Loading...</p>}*/}
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <table className="table-horizontal">
                     <colgroup>
                         <col className={css.w15p}/>
@@ -46,10 +77,13 @@ export function BoardWriteUi ({categoryPromise}: Props){
                         <th><label className="ess">category</label></th>
                         <td colSpan={3}>
                             {categories && (
-                                <select className="select" name="categoryCode">
+                                <select
+                                    {...register("categoryCode")}
+                                    className="select"
+                                >
                                     {categories.map(({id, name}) => (
                                         <option key={id} value={id}>
-                                            { name}
+                                            {name}
                                         </option>
                                     ))}
                                 </select>
@@ -58,7 +92,7 @@ export function BoardWriteUi ({categoryPromise}: Props){
                     </tr>
                     <tr>
                         <th><label className="ess">작성자</label></th>
-                        <td colSpan={3}><input type="text" name="writer" /></td>
+                        <td colSpan={3}><input {...register("writer", { required: true, maxLength: 20 })} /></td>
                     </tr>
                     <tr>
                         <th><label className="ess">Password</label></th>
@@ -74,25 +108,21 @@ export function BoardWriteUi ({categoryPromise}: Props){
                     </tr>
                     <tr>
                         <th><label className="ess">제목</label></th>
-                        <td colSpan={3}><input type="text" name="title" /></td>
+                        <td colSpan={3}><input type="text" {...register("title", { required: true, maxLength: 20 })} /></td>
                     </tr>
                     <tr>
                         <th><label className="ess">Content</label></th>
-                        <td colSpan={3}><textarea name="content" className="textarea" /></td>
+                        <td colSpan={3}><textarea className="textarea" {...register("content", { required: true })}/></td>
                     </tr>
                     <tr>
                         <th>File</th>
                         <td colSpan={3}>
-                            {/*Todo 배열로*/}
-                            <InputFile name="attachFile1" />
-                            <InputFile name="attachFile2" />
-                            <InputFile name="attachFile3" />
-                            {/*<input type="file" className="file" name="attachFile1" accept="image/*,application/pdf"/>*/}
-                            {/*<input type="file" className="file" name="attachFile2" accept="image/*,application/pdf"/>*/}
-                            {/*<input type="file" className="file" name="attachFile3" accept="image/*,application/pdf"/>*/}
-                            {/*<InputFile name={'attachFile1'} onChange={handleValueChange} multiple={true}/>*/}
-                            {/*<InputFile name={'attachFile2'} onChange={handleValueChange}/>*/}
-                            {/*<InputFile name={'attachFile3'} onChange={handleValueChange}/>*/}
+                            <FormFileUploader
+                                name="attachFiles"
+                                control={control}
+                                maxFiles={3}
+                                label="첨부 파일"
+                            />
                         </td>
                     </tr>
                     </tbody>

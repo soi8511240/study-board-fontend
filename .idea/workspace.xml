@@ -5,12 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f43a5b81-db90-4413-a007-7c4a64e35093" name="Changes" comment="Todo 처리중">
+      <change afterPath="$PROJECT_DIR$/src/shared/inputs/file/FileUploaderField.client.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/inputs/file/FormFileUploader.client.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/inputs/lib/form-helpers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/board/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/board/[id]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/board/modify/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/board/modify/[id]/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/board/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/board/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/board/write/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/board/write/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/board/api/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/board/api/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/codes/api/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/codes/api/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/board/ListsView/ListsView.client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/board/ListsView/ListsView.client.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/board/write/api/api.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/board/write/api/api.server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/board/write/hooks/useBoardWrite.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/board/write/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/board/write/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/board/write/ui/BoardWriteUi.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/board/write/ui/BoardWriteUi.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/board/write/ui/_BoardWriteUi.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/inputs/file/InputFile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/inputs/file/__InputFile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/inputs/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/inputs/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,31 +55,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/project/board-sts-react/backend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\project\\board-sts-react\\frontend\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/project/205. study-sts-react/front-end/src/shared/inputs/file",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.dev.executor": "Run",
+    "settings.editor.selected.configurable": "com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable",
+    "ts.external.directory.path": "D:\\project\\205. study-sts-react\\front-end\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\project\205. study-sts-react\front-end\src\shared\inputs\file" />
+      <recent name="D:\project\205. study-sts-react\front-end\src\app\board\write" />
       <recent name="C:\project\board-sts-react\frontend\src\features\board\write\ui" />
       <recent name="C:\project\board-sts-react\frontend\src\features\board\write\hooks" />
       <recent name="C:\project\board-sts-react\frontend\src\features\board\modify" />
-      <recent name="C:\project\board-sts-react\frontend\src\features\board\modify\ui" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\project\board-sts-react\frontend\src\app" />

@@ -2,8 +2,6 @@ import {apiInstance} from '@/shared/db/axios';
 import {BoardDto, type BoardListsResponse} from "@/entities/board";
 
 const boardListsApi = async (query={}):Promise<BoardListsResponse>=>{
-    console.log(
-        '############################ query', query)
     return apiInstance.get('/board/lists', {params:query})
         .then(({data}) => {
             return data.data;
