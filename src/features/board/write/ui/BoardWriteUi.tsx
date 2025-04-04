@@ -1,6 +1,6 @@
 'use client'
 
-import React, {use} from 'react';
+import React from 'react';
 import { useForm, SubmitHandler } from "react-hook-form";
 
 import css from './BoardWriteUi.module.css';

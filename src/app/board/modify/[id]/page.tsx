@@ -4,22 +4,22 @@ import {boardDetailApi} from "@/entities/board";
 import {boardCategoryApi} from "@/entities/codes";
 
 type Params = {
-    params: {
-        id: string
-    }
-}
+    params: Promise<{
+        id: string;
+    }>
+};
 
 export default async function Page({ params }:Params) {
-    const { id } = params;
-    const detailPromise = boardDetailApi({id});
-    const boardCategoriesPromise = boardCategoryApi();
+    const { id } = await params;
+    const detail = await boardDetailApi({id});
+    const boardCategories = await boardCategoryApi();
 
     return (
         <Suspense fallback={<div>Loading...</div>}>
             {/* params.id를 정상적으로 처리 */}
             <BoardModifyUi
-                detailPromise={detailPromise}
-                categoryPromise={boardCategoriesPromise}
+                detail={detail}
+                categories={boardCategories}
             />
         </Suspense>
     );

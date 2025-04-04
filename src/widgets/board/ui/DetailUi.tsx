@@ -31,7 +31,7 @@ export function DetailUi({ detailPromise }: Props) {
 
     openModal(
       <ModalCorrectPassword
-        correctPassword={detail.password as string}
+        correctPassword={'12341234'}
         callBack={() => {
           goModifyPage(id);
           closeModal();
@@ -53,7 +53,7 @@ export function DetailUi({ detailPromise }: Props) {
               <tr>
                 <th>ID</th>
                 <td>
-                  {detail.id}, password: {detail.password}
+                  {detail.id}
                 </td>
               </tr>
               <tr>
@@ -81,12 +81,15 @@ export function DetailUi({ detailPromise }: Props) {
                 <td>
                   {detail.attachYn === 'Y' && (
                     <ul>
-                      {/*{detail.attachFiles &&*/}
-                      {/*    detail.attachFiles.map((item, index) => (*/}
-                      {/*    <li key={index}>*/}
-                      {/*        <a href={item.fileUrl}>{item.originalFileName}</a>*/}
-                      {/*    </li>*/}
-                      {/*))}*/}
+                      {detail.files &&
+                          detail.files.map(({storedFileName, originalFileName}, index) => {
+                            return (
+                                <li key={index}>
+                                  <a href={'/api/boards/download/' + (storedFileName as string)}>{originalFileName}</a>
+                                </li>
+                            );
+                          })
+                      }
                     </ul>
                   )}
                 </td>

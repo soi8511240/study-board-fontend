@@ -12,6 +12,13 @@ export type BoardListsFilter = {
   currentPage?: string;
 };
 
+export type FileInfo = {
+  originalFileName?: string;
+  storedFileName?: string;
+  fileUri?: string;
+  orderBy?: string;
+}
+
 export type BoardDto = {
   id?: number;
   title: string;
@@ -26,7 +33,5 @@ export type BoardDto = {
   viewCnt?: number;
   attachYn?: string;
   attachFiles?: File[] | null;
-  attachFile1?: FileList | null;
-  attachFile2?: FileList | null;
-  attachFile3?: FileList | null;
+  files?:FileInfo[] | null;
 };

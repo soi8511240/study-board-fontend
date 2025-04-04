@@ -9,6 +9,4 @@ export { DetailUi } from './ui/DetailUi';
 
 /* custom hook */
 export { useListsFilter } from './hooks/useListsFilter';
-export { useListsFetch } from './hooks/useListsFetch';
-export { useDetail } from './hooks/useDetail';
 
