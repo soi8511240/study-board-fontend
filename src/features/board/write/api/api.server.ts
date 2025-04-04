@@ -5,8 +5,7 @@ import {apiInstance} from '@/shared/db/axios';
 import {redirect} from "next/navigation";
 
 export async function boardWriteApi(formData:FormData) {
-    console.log('########## formData', formData)
-    const response = await apiInstance.post('/board/insert', formData,{
+    const response = await apiInstance.post('/boards', formData,{
         headers: {
             'Content-Type': 'multipart/form-data',
         },
@@ -31,8 +30,8 @@ export async function boardWriteApi(formData:FormData) {
 
 }
 
-export async function boardUpdateApi(formData:FormData) {
-    const response =  await apiInstance.post('/board/update', formData, {
+export async function boardUpdateApi({formData, id} : {formData:FormData, id:string}) {
+    const response =  await apiInstance.put(`/boards/${id}`, formData, {
         headers: {
             'Content-Type': 'multipart/form-data',
         },
@@ -44,31 +43,4 @@ export async function boardUpdateApi(formData:FormData) {
         redirect(`/board/${id}`);
         // return id;
     }
-}
-
-const convertFormData = <T>(query:Partial<T>)=>{
-    // const formData = new FormData();
-    //
-    // // 텍스트 데이터와 파일 데이터 추가
-    // Object.keys(query).forEach((key) => {
-    //     const value = query[key as keyof T];
-    //
-    //     if (value instanceof Array) {
-    //         // FileList 처리 (파일 추가)
-    //         value.forEach((file) => {
-    //             if (file instanceof File) {
-    //                 formData.append(key, file); // 'attachFiles'로 모든 파일 추가
-    //             }
-    //         });
-    //     }else if (value !== undefined && value !== null) {
-    //         // 일반 텍스트 데이터 처리
-    //         formData.append(key, value as string); // 배열이 아니면 일반 값 처리
-    //     }
-    // });
-    //
-    // // for (const [key, value] of formData.entries()) {
-    // //     console.log('####### key value',key, value);
-    // // }
-    //
-    // return formData;
 }
